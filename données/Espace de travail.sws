@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?PowerDesigner signature="Workspace" version="15.1.0.2850"?>
+<!-- Veuillez ne pas modifier ce fichier -->
+
+<Workspace>
+	<Local Expanded="Yes">
+		<Model Expanded="Yes" ID="{128887B1-B25D-49AA-9352-361AE0E64AD2}" Name="parfumerie" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="parfumerie.mcd"/>
+		<Model Expanded="Yes" ID="{BB31989B-A0EF-4CAF-ABBF-A71631923CBB}" Name="parfumerieMLD" Selected="Yes" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="parfumerieMLD.mld"/>
+		<Model Expanded="Yes" ID="{1D256495-6C5C-4D22-8C33-E54FA008B565}" Name="parfumerieMPD" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="parfumerieMPD.mpd"/>
+	</Local>
+	<BrowserModule Name="Référentiel"/>
+</Workspace>

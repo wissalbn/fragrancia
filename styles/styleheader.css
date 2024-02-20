@@ -91,7 +91,7 @@ transition: scale 0.2 ease;
   display: none;
   position: fixed;
   right: 0;
-  top: 20px;
+  top: 0;
   height: 0px;
   background: 255,255,255,1;
   backdrop-filter: blur(15px);
@@ -99,11 +99,13 @@ transition: scale 0.2 ease;
   border-radius: 5px;
   overflow: hidden;
   transition: opacity 0.3s ease;
+  
 }
 
 .dropdown-menu.open{
   height: 1000px;
   display: block;
+  padding-top: 50px;
   
 }
 
@@ -160,6 +162,7 @@ transition: scale 0.2 ease;
   }
   .dropdown-menu{
     display: block;
+    width: 100%;
   }
   .toggle-btn {
     margin-left: 5%;
@@ -172,7 +175,7 @@ transition: scale 0.2 ease;
 
 @media(max-width: 570px){
   .dropdown-menu{
-    left: 2rem;
+    left: 0;
     width: unset;
   }
 }

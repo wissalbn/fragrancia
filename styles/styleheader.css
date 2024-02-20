@@ -89,22 +89,22 @@ transition: scale 0.2 ease;
 
 .dropdown-menu{
   display: none;
-  position: absolute;
-  right: 2rem;
-  top: 60px;
-  width: 300px;
+  position: fixed;
+  right: 0;
+  top: 20px;
   height: 0px;
-  background: 255,255,255,0.1;
+  background: 255,255,255,1;
   backdrop-filter: blur(15px);
+  z-index: 1000;
   border-radius: 5px;
   overflow: hidden;
-  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+  transition: opacity 0.3s ease;
 }
 
 .dropdown-menu.open{
-  height: 240px;
+  height: 1000px;
   display: block;
+  
 }
 
 .dropdown-menu li{
@@ -112,7 +112,29 @@ transition: scale 0.2 ease;
   display: flex;
   align-items: end;
   justify-content:end;
+  color: #fff;
 
+}
+
+.close-btn {
+  position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-btn i {
+  font-size: 1.5rem;
+  color: rgba(43, 43, 43, 1);
+}
+
+.close-btn i:hover {
+  color: #2b2b2b;
+}
+
+.hidden {
+  display: none;
 }
 
 @media(max-width: 900px){

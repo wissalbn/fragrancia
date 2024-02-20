@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../styles/styleheader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
         <div class="lv">
@@ -27,33 +29,46 @@
                 <a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN"></a>
                 <a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier"></a>
             </div>
-            
+
             <div class="toggle-btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
             <div class="dropdown-menu">
+                <div class="close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
                 <li><a href="#">ACCEUIL</a></li>
                 <li><a href="#">PARFUM FEMME</a></li>
                 <li><a href="#">PARFUM HOMME</a></li>
                 <li><a href="#">COPRS &amp; BAIN</a></li>
                 <li><a href="#">MARQUES</a></li>
+                <li><a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN">S'IDENTIFIER</a></li>
+                <li><a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier">PANIER</a></li>
+
+
             </div>
         </div>
 
     </header>
     <script>
-        const toggleBtn = document.querySelector('.toggle-btn')
-        const toggleBtnIcon = document.querySelector('.toggle-btn i')
-        const dropdownmenu = document.querySelector('.dropdown-menu')
-        toggleBtn.onclick = function(){
-            dropdownmenu.classList.toggle('open')
-            const isOpen = dropdownmenu.classList.contains('open')
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const toggleBtnIcon = document.querySelector('.toggle-btn i');
+        const dropdownmenu = document.querySelector('.dropdown-menu');
+        const logo = document.querySelector('.logo');
 
-            toggleBtnIcon.classList=isOpen
-                ? 'fa-solid fa-xmark'
-                : 'fa-solid fa-bars'
+        toggleBtn.onclick = function() {
+            dropdownmenu.classList.toggle('open');
+            const isOpen = dropdownmenu.classList.contains('open');
+            logo.classList.toggle('hidden', isOpen);
+        };
 
-        }
+        const closeBtn = document.querySelector('.close-btn');
+        closeBtn.addEventListener('click', function() {
+            dropdownmenu.classList.remove('open');
+            toggleBtnIcon.classList = 'fa-solid fa-bars';
+            logo.classList.remove('hidden');
+        });
     </script>
 </body>
+
 </html>

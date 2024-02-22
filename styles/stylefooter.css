@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Halant&display=swap');
-
-* {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
 }
 
 footer {
@@ -126,11 +122,11 @@ footer .copyright {
     line-height: 19.33px;
 }
 
-hr {
+footer hr {
 
     width: 90%;
     border: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
     margin: 10px auto;
 }
 

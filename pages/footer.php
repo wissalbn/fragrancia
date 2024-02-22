@@ -41,7 +41,7 @@
             </div>
         </div>
         <hr>
-        <div class="copyright">2024 © Fragrancia</div>
+        <div class="copyright">2024 &copy; Fragrancia</div>
     </footer>
 </body>
 

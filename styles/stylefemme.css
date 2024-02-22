@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+}
+
+.main .row {
+    margin: 2%
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 10px auto;
+}
+
+.row .filter-title {
+    color: #293541;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.35938rem */
+    letter-spacing: 0.045rem;
+}
+
+.row hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 10px auto;
+}
+
+
+
+.header {
+    /* border-bottom: 1px solid #ccc; */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.backlink {
+    margin-left: 5%;
+}
+
+.backlink a {
+    text-decoration: none;
+    color: #2B2B2B;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.backlink a:hover {
+    text-decoration: underline;
+}
+
+.filter-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #2B2B2B;
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 3.02081rem */
+    letter-spacing: 0.125rem;
+    margin-left: 5%;
+}
+
+.scroll-area {
+    max-height: 16rem;
+    overflow-y: auto;
+    margin-bottom: 10%;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.94rem;
+}
+
+/* Scrollbar Styles */
+.scroll-area::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background: #716e8c;
+}
+
+.scroll-area::-webkit-scrollbar-thumb:hover {
+    background: #3d3e51;
+}
+
+
+
+/* Style the custom checkbox */
+.checkbox-custom {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.checkbox-custom:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Style the checkmark inside the custom checkbox */
+.checkbox-custom:after {
+    content: U+2714;
+    font-size: 14px;
+    /* Adjust size as needed */
+    color: #870909;
+    /* Color of the checkmark */
+    display: none;
+    /* Hide by default */
+}
+
+/* Show the checkmark when the custom checkbox is checked */
+.checkbox-custom:checked:after {
+    display: inline-block;
+}
+
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: safe;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    flex: 0 0 auto;
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5625rem;
+    margin: 50px 0px;
+}
+
+.image img {
+    width: 14.9375rem;
+
+    height: 13.25rem;
+
+}
+
+.name {
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+    margin: 0.56rem 0;
+}
+
+.brand {
+
+    margin-bottom: 0.56rem;
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.price {
+    margin-bottom: 0.56rem;
+    font-family: "Halant", serif;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.discover {
+    background-color: #E0B594;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.05731rem */
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.discover:hover {
+    background: #e4ccba;
+}
+
+.search {
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.filtermobile{
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .filtermobile{
+        display: none;
+    }
+    .modal {
+        display: none !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-card {
+        width: calc(33.33% - 20px);
+        /* Adjust width for medium-sized screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .filtermobile{
+        display: block;
+    }
+    .filter {
+        display: none;
+    }
+
+    .modal {
+        display: none;
+    }
+    .col-2 {
+        width: 100%;
+        margin-bottom: 20px;
+        /* Add some spacing between filters */
+    }
+
+    .row h1{
+        font-size: 2rem;
+        text-align: center;
+    }
+    .filter-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .scroll-area {
+        max-height: 20rem;
+        /* Reduce the height of the scroll area */
+        margin-bottom: 5%;
+        /* Adjust margin for smaller screens */
+    }
+
+    .product-container {
+        padding: 0 15px;
+        /* Adjust padding for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .product-card {
+        width: calc(50% - 20px);
+        /* Adjust width for smaller screens */
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .col-2{
+        display: none;
+    }
+
+    .row h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .filtermobile{
+        display: block;
+    }
+    .filter {
+        display: none;
+    }
+
+    .modal {
+        display: none;
+    }
+
+    .filter-title {
+        font-size: 1rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .scroll-area {
+        max-height: 8rem;
+        /* Further reduce the height of the scroll area */
+    }
+
+    .product-card {
+        width: calc(33% - 0px);
+    margin-bottom: 20px; /* Add bottom margin to create space between product cards */
+    padding: 10px;
+    }
+    .product-card .image img {
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .product-card .name {
+        font-size: 0.6rem; /* Adjust font size as needed */
+    }
+    
+    /* Adjust size for brand */
+    .product-card .brand {
+        font-size: 0.6rem; /* Adjust font size as needed */
+    }
+    
+    /* Adjust size for price */
+    .product-card .price {
+        font-size: 0.7rem; /* Adjust font size as needed */
+    }
+    
+    /* Adjust size for discover button */
+    .product-card .discover {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: safe;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+}

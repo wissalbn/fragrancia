@@ -113,7 +113,9 @@
 }
 
 .image img {
-    max-width: 100%;
+    width: 16.5625rem;
+    height: 13.8125rem;
+    
 }
 
 .name {

@@ -1,0 +1,83 @@
+.product-container {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 30px;
+    margin-bottom: 20px;
+
+}
+
+.product-card {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    text-align: center;
+    display: flex;
+    width: 17.625rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5625rem;
+    border: 1px lightgray;
+}
+
+.product-card:last-child {
+    margin-right: 0;
+}
+
+.image img {
+    max-width: 100%;
+}
+
+.name {
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+    margin-bottom: 0.56rem;
+}
+
+.brand {
+
+    margin-bottom: 0.56rem;
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.price {
+    margin-bottom: 0.56rem;
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+.discover {
+    background-color: #E0B594;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.05731rem */
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.discover:hover {
+    background: #e4ccba;
+}

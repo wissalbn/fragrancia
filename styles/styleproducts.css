@@ -9,10 +9,13 @@
 
 body {
     line-height: 1.6;
+    width: 100%;
 }
 
 .main .row {
-    margin: 2%
+    margin: 2%;
+    display: flex;
+    justify-content: safe center;
 }
 
 .container {
@@ -28,7 +31,7 @@ body {
     margin: 10px auto;
 }
 
-.row .filter-title {
+.main .row .filter-title {
     color: #293541;
     font-family: 'Raleway', sans-serif;
     font-size: 1.125rem;
@@ -39,7 +42,7 @@ body {
     letter-spacing: 0.045rem;
 }
 
-.row hr {
+.main .row hr {
     width: 90%;
     border: 0;
     border-bottom: 1px solid #3b3b3b;
@@ -144,11 +147,8 @@ input[type="checkbox"] {
 .checkbox-custom:after {
     content: U+2714;
     font-size: 14px;
-    /* Adjust size as needed */
     color: #870909;
-    /* Color of the checkmark */
     display: none;
-    /* Hide by default */
 }
 
 /* Show the checkmark when the custom checkbox is checked */
@@ -232,6 +232,7 @@ input[type="checkbox"] {
     /* 1.05731rem */
     letter-spacing: 0.035rem;
     transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .discover:hover {
@@ -246,33 +247,25 @@ input[type="checkbox"] {
 
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1000;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: 10% auto;
-    /* 10% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    /* Could be more or less, depending on screen size */
     border-radius: 10px;
 }
 
-/* Close button */
 .close {
     color: #aaa;
     float: right;
@@ -287,30 +280,89 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-.filtermobile{
+.filtermobile {
     display: none;
+    margin-bottom: 3%;
 }
 
+button#openFilterModal{
+    border: 0;
+    background-color: #E0B594;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.05731rem */
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
+
+}
+button#openFilterModal:hover{
+    background: #e4ccba;
+}
+
+
 @media (min-width: 768px) {
-    .filtermobile{
+    
+
+    .filtermobile {
         display: none;
     }
+
     .modal {
         display: none !important;
     }
+
 }
+
+@media (max-width: 1324px) {
+    .image img {
+        width: 12.9375rem;
+
+        height: 11.25rem;
+
+    }
+
+}
+
+
+@media (max-width: 1125px) {
+    .product-card {
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .image img {
+        width: 12.9375rem;
+        height: 11.25rem;
+    }
+}
+
 
 @media (max-width: 992px) {
     .product-card {
-        width: calc(33.33% - 20px);
-        /* Adjust width for medium-sized screens */
+        width: calc(50% - 20px);
     }
+    
 }
 
 @media (max-width: 768px) {
-    .filtermobile{
+    .main .row {
+        margin: 0;
+        --bs-gutter-x: 0;
+        padding: 0;
+    }
+
+    .filtermobile {
         display: block;
     }
+
     .filter {
         display: none;
     }
@@ -318,16 +370,18 @@ input[type="checkbox"] {
     .modal {
         display: none;
     }
+
     .col-2 {
         width: 100%;
         margin-bottom: 20px;
-        /* Add some spacing between filters */
+        
     }
 
-    .row h1{
+    .main .row h1 {
         font-size: 2rem;
         text-align: center;
     }
+
     .filter-title {
         display: flex;
         justify-content: space-between;
@@ -339,36 +393,34 @@ input[type="checkbox"] {
 
     .scroll-area {
         max-height: 20rem;
-        /* Reduce the height of the scroll area */
         margin-bottom: 5%;
-        /* Adjust margin for smaller screens */
     }
 
     .product-container {
         padding: 0 15px;
-        /* Adjust padding for smaller screens */
         margin-bottom: 20px;
     }
 
     .product-card {
         width: calc(50% - 20px);
-        /* Adjust width for smaller screens */
     }
-    
+
 }
 
 @media (max-width: 576px) {
-    .col-2{
+    .col-2 {
         display: none;
     }
 
-    .row h1{
+    .main .row h1 {
         font-size: 1.5rem;
         text-align: center;
     }
-    .filtermobile{
+
+    .filtermobile {
         display: block;
     }
+
     .filter {
         display: none;
     }
@@ -379,49 +431,46 @@ input[type="checkbox"] {
 
     .filter-title {
         font-size: 1rem;
-        /* Adjust font size for smaller screens */
     }
 
     .scroll-area {
         max-height: 8rem;
-        /* Further reduce the height of the scroll area */
     }
 
     .product-card {
         width: calc(33% - 0px);
-    margin-bottom: 20px; /* Add bottom margin to create space between product cards */
-    padding: 10px;
+        margin-bottom: 20px;
+        padding: 10px;
     }
+
     .product-card .image img {
-        max-width: 100%; /* Ensure image doesn't exceed container width */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%;
+        height: auto;
+        /* Maintain aspect ratio */
     }
-    
+
     .product-card .name {
-        font-size: 0.6rem; /* Adjust font size as needed */
+        font-size: 0.6rem;
     }
-    
-    /* Adjust size for brand */
+
     .product-card .brand {
-        font-size: 0.6rem; /* Adjust font size as needed */
+        font-size: 0.6rem;
     }
-    
-    /* Adjust size for price */
+
     .product-card .price {
-        font-size: 0.7rem; /* Adjust font size as needed */
+        font-size: 0.7rem;
     }
-    
-    /* Adjust size for discover button */
+
     .product-card .discover {
         font-size: 10px;
         padding: 5px 12px;
     }
+
     .product-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: safe;
         padding: 0;
         margin-bottom: 20px;
     }
-    
+
 }

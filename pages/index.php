@@ -28,7 +28,7 @@ $all_product = $bdd->query($sql);
             <div class="subtitle">
                 <p>Chez Fragrancia, nous pensons que le parfum est une forme d'art qui élève les sens. Explorez notre exquise collection de parfums conçus pour évoquer des émotions et des souvenirs.</p>
             </div>
-            <button class="discover">DECOUVRIR</button>
+            <button class="discover" id="parfumfemme">DECOUVRIR</button>
         </div>
     </div>
 
@@ -66,6 +66,11 @@ $all_product = $bdd->query($sql);
     </div>
 
     <footer><?php include("../pages/footer.php") ?></footer>
+    <script>
+        document.getElementById("parfumfemme").addEventListener("click", function() {
+            window.location.href = "../pages/parfumfemme.php";
+        });
+    </script>
 
 </body>
 

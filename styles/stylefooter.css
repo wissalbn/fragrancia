@@ -16,8 +16,7 @@ footer {
 
 }
 
-.row {
-    width: 100%;
+footer .row {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -46,6 +45,7 @@ footer {
     line-height: 24.17px;
     letter-spacing: 0.80px;
     font-family: 'Judson', serif;
+    text-align: center;
 }
 
 .ellipse {

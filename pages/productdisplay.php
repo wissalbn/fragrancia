@@ -47,7 +47,7 @@
                         ?>
                     </a>
                     &gt;
-                    <a href="#"><?= $product['NOMPROD']; ?></a>
+                    <a class="upcase" href="#"><?= $product['NOMPROD']; ?></a>
                 </div>
                 <div class="main">
                     <div class="row">

@@ -119,6 +119,8 @@
                             while ($row = mysqli_fetch_assoc($all_product)) {
                     ?>
                                 <div class="product-card">
+                                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+
                                     <div class="image">
                                         <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
                                     </div>
@@ -126,6 +128,7 @@
                                     <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                                     <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
                                     <button class="discover">AJOUTER AU PANIER</button>
+                                </a>
                                 </div>
                             <?php
                             }
@@ -140,6 +143,8 @@
                         while ($row = mysqli_fetch_assoc($all_product)) {
                         ?>
                             <div class="product-card">
+                            <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+
                                 <div class="image">
                                     <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
                                 </div>
@@ -147,6 +152,7 @@
                                 <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                                 <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
                                 <button class="discover">AJOUTER AU PANIER</button>
+                            </a>
                             </div>
                     <?php
                         }

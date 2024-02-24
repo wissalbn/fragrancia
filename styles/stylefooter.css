@@ -16,7 +16,7 @@ footer {
 
 }
 
-footer .row {
+footer .footer-row {
     margin: auto;
     display: flex;
     flex-wrap: wrap;

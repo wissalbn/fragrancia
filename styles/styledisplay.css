@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -13,9 +14,27 @@ body {
 }
 
 .backlink {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
+    margin-left: 5%;
+}
+
+.backlink a {
+    text-decoration: none;
+    color: #2B2B2B;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.backlink a:hover {
+    text-decoration: underline;
+}
+
+.backlink .upcase {
+    text-transform: uppercase;
 }
 
 .main {
@@ -27,47 +46,108 @@ body {
 }
 
 .img-container img {
-    max-width: 100%;
+    width: 31.25rem;
     height: auto;
     margin-bottom: 20px;
 }
 
 .brand {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    display: flex;
+    width: 15.5625rem;
+    height: 2.875rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+
+    font-family: 'Judson', serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.833%;
+    /* 1.8125rem */
+    letter-spacing: 0.06rem;
+    text-decoration-line: underline;
 }
 
 .name {
-    font-size: 24px;
-    margin-bottom: 10px;
+    display: flex;
+    width: 36.4375rem;
+    height: 4.0625rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 2.71875rem */
+    letter-spacing: 0.1125rem;
 }
 
 .type {
-    font-size: 18px;
-    margin-bottom: 10px;
+    display: flex;
+    width: 17.625rem;
+    height: 2.875rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+
+    font-family: 'Judson', serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.833%;
+    /* 1.8125rem */
+    letter-spacing: 0.06rem;
+    margin-bottom: 3rem;
 }
 
 .desc {
-    margin-bottom: 20px;
+    color: #000;
+
+    font-family: "Halant", serif;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.66144rem */
+    letter-spacing: 0.055rem;
+    margin-bottom: 2.62rem;
 }
 
 .price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 20px;
+    color: #000;
+
+    font-family: "Playfair Display", serif;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 2.71875rem */
+    letter-spacing: 0.1125rem;
+    display: flex;
+    width: 36.4375rem;
+    height: 4.375rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 1.62rem;
 }
 
 .buy button {
     background-color: #E0B594;
     border: none;
-    padding: 10px 20px;
+    padding: 1rem 5rem;
     cursor: pointer;
     color: #FFF;
     text-align: center;
     font-family: "Raleway", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 700;
     line-height: 120.833%;
@@ -78,12 +158,18 @@ body {
 }
 
 .buy button:hover {
-    background-color: #0056b3;
+    background-color: #E29961;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically center the child elements */
+    align-items: center;
 }
 
 .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
 }

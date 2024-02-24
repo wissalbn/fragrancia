@@ -236,7 +236,7 @@ input[type="checkbox"] {
 }
 
 .discover:hover {
-    background: #e4ccba;
+    background: #E29961;
 }
 
 .search {
@@ -286,11 +286,12 @@ input[type="checkbox"] {
 }
 
 button#openFilterModal{
+    margin-left: 20%;
     border: 0;
-    background-color: #E0B594;
+    background-color: rgba(255, 255, 255, 0);
     padding: 10px 20px;
     cursor: pointer;
-    color: #FFF;
+    color: #2B2B2B;
     text-align: center;
     font-family: "Raleway", sans-serif;
     font-size: 0.875rem;
@@ -305,6 +306,14 @@ button#openFilterModal{
 }
 button#openFilterModal:hover{
     background: #e4ccba;
+    text-decoration: underline;
+    color: #FFF;
+    
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
 }
 
 
@@ -413,6 +422,7 @@ button#openFilterModal:hover{
     }
 
     .main .row h1 {
+        margin: 0;
         font-size: 1.5rem;
         text-align: center;
     }

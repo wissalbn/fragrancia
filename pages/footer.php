@@ -11,7 +11,7 @@
 </head>
 <body>
     <footer>
-        <div class="row">
+        <div class="footer-row">
             <div class="col">
                 <div class="foot-title">INFORMATION</div>
                 <ul>

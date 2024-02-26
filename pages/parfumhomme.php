@@ -55,7 +55,7 @@
             <div class="col-10">
                 <h1>PRODUITS PARFUM HOMME</h1>
                 <div class="filtermobile">
-                    <button id="openFilterModal">+ Ajouter des filtres</button>
+                    <button id="openFilterModal"><i class="fa-solid fa-plus" style="color: #e6a970;"></i> Ajouter des filtres</button>
                     <div id="filterModal" class="modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>

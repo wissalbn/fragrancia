@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="../styles/styleproducts.css">
 </head>
 
-<body> 
+<body>
     <div class="header">
         <?php include("../pages/header.php"); ?>
         <hr>
         <div class="backlink">
             <a href="../pages/index.php">ACCUEIL </a>
             &gt;
-            <a href="#"> Coprs & Bain</a>
+            <a href="#"> CORPS & BAIN</a>
         </div>
     </div>
     <div class="main">
@@ -56,7 +56,7 @@
             <div class="col-10">
                 <h1>PRODUITS COPRS & BAIN</h1>
                 <div class="filtermobile">
-                    <button id="openFilterModal">+ Ajouter des filtres</button>
+                    <button id="openFilterModal"><i class="fa-solid fa-plus" style="color: #e6a970;"></i> Ajouter des filtres</button>
                     <div id="filterModal" class="modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>
@@ -84,8 +84,10 @@
                                 <hr>
 
                                 <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
-                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Parfum" <?php if (isset($_GET['type']) && in_array('Eau de Parfum', $_GET['type'])) echo "checked"; ?>>Eau de Parfum<br>
-                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Toilette" <?php if (isset($_GET['type']) && in_array('Eau de Toilette', $_GET['type'])) echo "checked"; ?>>Eau de Toilette
+                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Déodorant" <?php if (isset($_GET['type']) && in_array('Déodorant', $_GET['type'])) echo "checked"; ?>>Déodorant<br>
+                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Bain et douche" <?php if (isset($_GET['type']) && in_array('Bain et douche', $_GET['type'])) echo "checked"; ?>>Bain et douche<br>
+                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Main et ongles" <?php if (isset($_GET['type']) && in_array('Main et ongles', $_GET['type'])) echo "checked"; ?>>Main et ongles<br>
+                                <input type="checkbox" class="checkbox-custom" name="type[]" value="Soin homme" <?php if (isset($_GET['type']) && in_array('Soin homme', $_GET['type'])) echo "checked"; ?>>Soin homme<br>
                             </form>
                         </div>
                     </div>
@@ -119,16 +121,16 @@
                             while ($row = mysqli_fetch_assoc($all_product)) {
                     ?>
                                 <div class="product-card">
-                                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+                                    <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
 
-                                    <div class="image">
-                                        <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
-                                    </div>
-                                    <div class="name"><?php echo $row["NOMPROD"]; ?></div>
-                                    <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
-                                    <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                    <button class="discover">AJOUTER AU PANIER</button>
-                                </a>
+                                        <div class="image">
+                                            <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
+                                        </div>
+                                        <div class="name"><?php echo $row["NOMPROD"]; ?></div>
+                                        <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
+                                        <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
+                                        <button class="discover">AJOUTER AU PANIER</button>
+                                    </a>
                                 </div>
                             <?php
                             }
@@ -143,16 +145,16 @@
                         while ($row = mysqli_fetch_assoc($all_product)) {
                         ?>
                             <div class="product-card">
-                            <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+                                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
 
-                                <div class="image">
-                                    <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
-                                </div>
-                                <div class="name"><?php echo $row["NOMPROD"]; ?></div>
-                                <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
-                                <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                <button class="discover">AJOUTER AU PANIER</button>
-                            </a>
+                                    <div class="image">
+                                        <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
+                                    </div>
+                                    <div class="name"><?php echo $row["NOMPROD"]; ?></div>
+                                    <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
+                                    <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
+                                    <button class="discover">AJOUTER AU PANIER</button>
+                                </a>
                             </div>
                     <?php
                         }

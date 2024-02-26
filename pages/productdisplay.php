@@ -34,7 +34,7 @@
                                 elseif ($product['IDCAT'] == 2)
                                     echo "../pages/parfumhomme.php";
                                 else
-                                    echo "../pages/coprsbain.php";
+                                    echo "../pages/corpsbain.php";
                                 ?>
             ">
                         <?php
@@ -50,18 +50,18 @@
                     <a class="upcase" href="#"><?= $product['NOMPROD']; ?></a>
                 </div>
                 <div class="main">
-                    <div class="row">
+                    <div class="row gx-4">
 
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <div class="img-container">
-                                <img src="<?= $product['URLIMAGE'] ?>" alt="">
+                                <img src="<?= $product['URLIMAGE'] ?>" class="img-fluid" alt="">
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="brand"><?= $product['NOMMARQ']; ?></div>
+                        <div class="col-md-6">
+                            <div class="brand"> <a href="#"><?= $product['NOMMARQ']; ?></a> </div>
                             <div class="name"><?= $product['NOMPROD']; ?></div>
                             <div class="type"><?= $product['TYPEPROD']; ?></div>
-                            <div class="desc"><?= $product['DESCPROD']; ?></div>
+                            <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
                             <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
                             <div class="buy"><button class="buy">ACHETER</button></div>
                         </div>

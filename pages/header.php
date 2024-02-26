@@ -16,14 +16,20 @@
         </div>
         <div class="navbar">
             <div class="logo">
-                <a href="#"><img src="../images/fragrancia.png" alt="Fragrancia"></a>
+                <a href="../pages/index.php"><img src="../images/fragrancia.png" alt="Fragrancia"></a>
             </div>
             <ul class="links">
                 <li><a href="../pages/index.php">ACCUEIL</a></li>
                 <li><a href="../pages/parfumfemme.php">PARFUM FEMME</a></li>
                 <li><a href="../pages/parfumhomme.php">PARFUM HOMME</a></li>
                 <li><a href="../pages/corpsbain.php">COPRS &amp; BAIN</a></li>
-                <li><a href="#">MARQUES</a></li>
+                <li class="menudown">
+                    <a href="#">MARQUES</a>
+                    <div class="menudown-content">
+                        <a href="#">Brand 1</a>
+                        <a href="#">Brand 2</a>
+                        <a href="#">Brand 3</a>
+                    </div>
             </ul>
             <div class="icon">
                 <a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN"></a>

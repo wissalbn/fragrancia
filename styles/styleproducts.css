@@ -286,7 +286,6 @@ input[type="checkbox"] {
 }
 
 button#openFilterModal{
-    margin-left: 20%;
     border: 0;
     background-color: rgba(255, 255, 255, 0);
     padding: 10px 20px;
@@ -316,20 +315,6 @@ button#openFilterModal:hover{
     bottom: 0;
 }
 
-
-@media (min-width: 768px) {
-    
-
-    .filtermobile {
-        display: none;
-    }
-
-    .modal {
-        display: none !important;
-    }
-
-}
-
 @media (max-width: 1324px) {
     .image img {
         width: 12.9375rem;
@@ -354,22 +339,14 @@ button#openFilterModal:hover{
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
     .product-card {
         width: calc(50% - 20px);
     }
-    
-}
-
-@media (max-width: 768px) {
-    .main .row {
-        margin: 0;
-        --bs-gutter-x: 0;
-        padding: 0;
-    }
-
     .filtermobile {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .filter {
@@ -385,6 +362,17 @@ button#openFilterModal:hover{
         margin-bottom: 20px;
         
     }
+    
+}
+
+@media (max-width: 768px) {
+    .main .row {
+        margin: 0;
+        --bs-gutter-x: 0;
+        padding: 0;
+    }
+
+   
 
     .main .row h1 {
         font-size: 2rem;
@@ -425,18 +413,6 @@ button#openFilterModal:hover{
         margin: 0;
         font-size: 1.5rem;
         text-align: center;
-    }
-
-    .filtermobile {
-        display: block;
-    }
-
-    .filter {
-        display: none;
-    }
-
-    .modal {
-        display: none;
     }
 
     .filter-title {

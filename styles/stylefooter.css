@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Halant&display=swap');
+
 body {
     margin: 0;
 }
@@ -13,7 +14,6 @@ footer {
     color: #fff;
     padding: 50px 0 10px;
     border-top-right-radius: 100px;
-
 }
 
 footer .footer-row {
@@ -29,7 +29,6 @@ footer .footer-row {
     padding: 10px;
     text-align: center;
     margin-bottom: 1%;
-
 }
 
 .col * {
@@ -58,18 +57,17 @@ footer .footer-row {
 
 .col ul {
     position: relative;
+    padding-left: 0;
 }
 
 .col ul li {
     list-style: none;
     width: 100%;
-
 }
 
 .col li:first-child {
     width: 0;
     margin-left: 50%;
-
 }
 
 footer li a {
@@ -83,10 +81,9 @@ footer li a {
     word-wrap: break-word;
     font-family: 'Judson', serif;
     font-weight: 400;
-
 }
 
-footer li a:hover{
+footer li a:hover {
     text-decoration: underline;
     font-weight: 400;
     font-family: 'Judson', serif;
@@ -105,7 +102,7 @@ footer li a:hover{
     cursor: pointer;
 }
 
-.container-icons .fa-brands:hover{
+.container-icons .fa-brands:hover {
     background: #765f6a;
     color: #d8d5d5;
     transition: all 0.4s ease-out;
@@ -123,7 +120,6 @@ footer .copyright {
 }
 
 footer hr {
-
     width: 90%;
     border: 0;
     border-bottom: 1px solid #fff;
@@ -131,7 +127,6 @@ footer hr {
 }
 
 @media screen and (max-width: 768px) {
-
     .col {
         flex-basis: 100%;
         margin-bottom: 20px;

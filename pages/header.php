@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="lv">
-            Livraison gratuite à partir de 500DH
+            Livraison gratuite à partir de 50&euro;
         </div>
         <div class="navbar">
             <div class="logo">
@@ -24,7 +24,7 @@
                 <li><a href="../pages/parfumhomme.php">PARFUM HOMME</a></li>
                 <li><a href="../pages/corpsbain.php">COPRS &amp; BAIN</a></li>
                 <li class="menudown">
-                    <a href="#">MARQUES</a>
+                    <a href="../pages/brands.php">MARQUES</a>
                     <div class="menudown-content">
                         <a href="#">Brand 1</a>
                         <a href="#">Brand 2</a>
@@ -47,9 +47,10 @@
                 <li><a href="../pages/parfumfemme.php">PARFUM FEMME</a></li>
                 <li><a href="../pages/parfumhomme.php">PARFUM HOMME</a></li>
                 <li><a href="../pages/corpsbain.php">COPRS &amp; BAIN</a></li>
-                <li><a href="#">MARQUES</a></li>
-                <li><a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN">S'IDENTIFIER</a></li>
-                <li><a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier">PANIER</a></li>
+                <li><a href="../pages/brands.php">MARQUES</a></li>
+                <li></li>
+                <li><a href="#" class="action-btn">S'IDENTIFIER</a></li>
+                <li><a href="#" class="action-btn">PANIER</a></li>
 
 
             </div>

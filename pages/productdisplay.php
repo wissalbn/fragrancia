@@ -49,25 +49,26 @@
                     &gt;
                     <a class="upcase" href="#"><?= $product['NOMPROD']; ?></a>
                 </div>
-                <div class="main">
-                    <div class="row gx-4">
+    </div>
+    <div class="main">
+        <div class="row gx-4">
 
-                        <div class="col-md-6">
-                            <div class="img-container">
-                                <img src="<?= $product['URLIMAGE'] ?>" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="brand"> <a href="#"><?= $product['NOMMARQ']; ?></a> </div>
-                            <div class="name"><?= $product['NOMPROD']; ?></div>
-                            <div class="type"><?= $product['TYPEPROD']; ?></div>
-                            <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
-                            <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
-                            <div class="buy"><button class="buy">ACHETER</button></div>
-                        </div>
+            <div class="col-md-6">
+                <div class="img-container">
+                    <img src="<?= $product['URLIMAGE'] ?>" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="brand"> <a href="#"><?= $product['NOMMARQ']; ?></a> </div>
+                <div class="name"><?= $product['NOMPROD']; ?></div>
+                <div class="type"><?= $product['TYPEPROD']; ?></div>
+                <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
+                <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
+                <div class="buy"><button class="buy">ACHETER</button></div>
+            </div>
 
 
-                <?php
+    <?php
             } else {
                 echo "<p>Produit non trouvé</p>";
             }
@@ -76,15 +77,14 @@
         } else {
             echo "<p>Product ID not provided</p>";
         }
-                ?>
+    ?>
 
 
 
-                    </div>
-                </div>
-                <footer>
-                    <?php include("../pages/footer.php"); ?>
-                </footer>
+        </div>
+    </div>
+    <footer><?php include("../pages/footer.php") ?></footer>
+
 </body>
 
 </html>

@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.row{
+    display: flex;
+}
+.col1,
+.col2 {
+    text-align: center;
+   
+    
+    width: 50%;
+}
+.col1{
+     margin-left: 9%;
+}
+.col2{
+    margin-right: 5%;
+    
+}
+.propos-nous{
+    text-align: center;
+    margin-left: 9%;
+    margin-right: 9%;
+}
+.info_rajae,
+.info_wissal img, p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /*margin-right:10%;*/ 
+}
+
+
+.col1, .col2 {
+    margin-bottom: 30px; 
+    margin-left: 30px;
+    
+}
+.rajae, .wissalimg{
+    width : 90px;
+    height: 90px;
+}
+.label {
+    height: 50%;
+    width: 50%;
+    }
+.nos-mission{
+    text-align: center;
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-bottom: 4%;
+    
+}

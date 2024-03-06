@@ -1,33 +1,33 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
-}
-.row{
+} */
+.main .row{
     display: flex;
 }
-.col1,
+.main .col1,
 .col2 {
     text-align: center;
    
     
     width: 50%;
 }
-.col1{
+.main .col1{
      margin-left: 9%;
 }
-.col2{
+.main .col2{
     margin-right: 5%;
     
 }
-.propos-nous{
+.main .propos-nous{
     text-align: center;
     margin-left: 9%;
     margin-right: 9%;
 }
-.info_rajae,
-.info_wissal img, p{
+.main .info_rajae,
+.main .info_wissal img, p{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,23 +37,28 @@ body {
 }
 
 
-.col1, .col2 {
+.main .col1, .main .col2 {
     margin-bottom: 30px; 
     margin-left: 30px;
     
 }
-.rajae, .wissalimg{
+.main .rajae, .main .wissalimg{
     width : 90px;
     height: 90px;
 }
-.label {
+.main .label {
     height: 50%;
     width: 50%;
     }
-.nos-mission{
+.main .nos-mission{
     text-align: center;
     margin-left: 9%;
     margin-right: 9%;
     margin-bottom: 4%;
     
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+

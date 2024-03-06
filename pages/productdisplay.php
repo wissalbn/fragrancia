@@ -64,7 +64,7 @@
                 <div class="type"><?= $product['TYPEPROD']; ?></div>
                 <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
                 <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
-                <div class="buy"><button class="buy">ACHETER</button></div>
+                <div class="buy"><button class="buy">AJOUTER AU PANIER</button></div>
             </div>
 
 

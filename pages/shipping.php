@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Livraison</title>
-    <link rel="stylesheet" href="../styles/stylelivraison.css">
+    <title>Livraison</title>
+    <link rel="stylesheet" href="../styles/styleshipping.css">
 </head>
 <body>
     <div class="row">
@@ -31,7 +31,7 @@
     </div>
     </div>
     <div class="main">
-        <h1>Livraison</h1>
+        <h1 >Livraison</h1>
         <p><strong>L’équipe de votre parfumerie en ligne Frangrancia met en œuvre toutes ses ressources pour vous assurer une livraison de qualité tout en respectant les délais. La satisfaction de nos clients est notre principale préoccupation. Dès la réception de votre commande, elle est préparée soigneusement puis confiée à nos partenaires.</strong></p>
         <p><strong>La livraison est assurée par nos partenaires sous un délai de 2 à 4 jours ouvrés partout au Maroc. De plus, les frais de livraison sont offerts pour toutes commandes supérieures à 50£.</strong></p>
     </div>

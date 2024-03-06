@@ -28,7 +28,7 @@
                     <li>
                         <div class="ellipse"></div>
                     </li>
-                    <li><a href="../pages/livraison.php">Livraison</a></li>
+                    <li><a href="../pages/shipping.php">Livraison</a></li>
                     <li><a href="../pages/return.php">Condition de retour</a></li>
                 </ul>
             </div>

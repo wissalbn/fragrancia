@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 0;
@@ -10,7 +9,17 @@ body {
 .header {
     background-color: #fff;
     padding: 0;
-    border-bottom: 1px solid #ccc;
+}
+.header hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 10px auto;
+}
+
+.main .row {
+    height: fit-content;
+    margin: 5% 0;
 }
 
 .backlink {
@@ -46,59 +55,58 @@ body {
 }
 
 .img-container img {
-    width: 31.25rem;
+    width: 25rem;
     height: auto;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
-.brand {
+.brand a {
     display: flex;
-    width: 15.5625rem;
-    height: 2.875rem;
+
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
     color: #000;
 
     font-family: 'Judson', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
     line-height: 120.833%;
     /* 1.8125rem */
     letter-spacing: 0.06rem;
     text-decoration-line: underline;
+    margin-bottom: 1rem;
 }
 
 .name {
     display: flex;
-    width: 36.4375rem;
-    height: 4.0625rem;
+
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
     color: #000;
 
     font-family: "Playfair Display", serif;
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     font-style: normal;
     font-weight: 700;
     line-height: 120.833%;
     /* 2.71875rem */
     letter-spacing: 0.1125rem;
+    margin-bottom: 1rem;
 }
 
 .type {
     display: flex;
-    width: 17.625rem;
-    height: 2.875rem;
+
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
     color: #000;
 
     font-family: 'Judson', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
     line-height: 120.833%;
@@ -109,30 +117,34 @@ body {
 
 .desc {
     color: #000;
-
+    /* width: 30rem; */
     font-family: "Halant", serif;
-    font-size: 1.375rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 120.833%;
     /* 1.66144rem */
     letter-spacing: 0.055rem;
-    margin-bottom: 2.62rem;
+    margin-bottom: 3rem;
+}
+
+.container-fluid{
+    /* margin: 0; */
+    padding: 0;
 }
 
 .price {
     color: #000;
 
     font-family: "Playfair Display", serif;
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     font-style: normal;
     font-weight: 700;
     line-height: 120.833%;
     /* 2.71875rem */
     letter-spacing: 0.1125rem;
     display: flex;
-    width: 36.4375rem;
-    height: 4.375rem;
+
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
@@ -172,4 +184,21 @@ body {
 .footer {
     position: fixed;
     bottom: 0;
+}
+
+@media(max-width: 768px){
+    .type,
+    .brand a{
+        font-size: 1rem;
+    }
+    .name{
+        font-size: 1.5rem;
+    }
+    
+
+    .buy{
+        width: 100%;
+
+    }
+
 }

@@ -25,7 +25,7 @@
             <div class="col-2">
                 <div class="filter">
                     <form action="" method="get">
-                        <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                        <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                         <div class="scroll-area">
                             <?php
                             require_once 'connection.php';
@@ -47,7 +47,7 @@
 
                         <hr>
 
-                        <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                        <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                         <input type="checkbox" class="checkbox-custom" name="type[]" value="Déodorant" <?php if (isset($_GET['type']) && in_array('Déodorant', $_GET['type'])) echo "checked"; ?>>Déodorant<br>
                         <input type="checkbox" class="checkbox-custom" name="type[]" value="Bain et douche" <?php if (isset($_GET['type']) && in_array('Bain et douche', $_GET['type'])) echo "checked"; ?>>Bain et douche<br>
                         <input type="checkbox" class="checkbox-custom" name="type[]" value="Main et ongles" <?php if (isset($_GET['type']) && in_array('Main et ongles', $_GET['type'])) echo "checked"; ?>>Main et ongles<br>
@@ -63,7 +63,7 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <form action="" method="get">
-                                <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                                <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                                 <div class="scroll-area">
                                     <?php
                                     require_once 'connection.php';
@@ -85,7 +85,7 @@
 
                                 <hr>
 
-                                <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                                <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                                 <input type="checkbox" class="checkbox-custom" name="type[]" value="Déodorant" <?php if (isset($_GET['type']) && in_array('Déodorant', $_GET['type'])) echo "checked"; ?>>Déodorant<br>
                                 <input type="checkbox" class="checkbox-custom" name="type[]" value="Bain et douche" <?php if (isset($_GET['type']) && in_array('Bain et douche', $_GET['type'])) echo "checked"; ?>>Bain et douche<br>
                                 <input type="checkbox" class="checkbox-custom" name="type[]" value="Main et ongles" <?php if (isset($_GET['type']) && in_array('Main et ongles', $_GET['type'])) echo "checked"; ?>>Main et ongles<br>

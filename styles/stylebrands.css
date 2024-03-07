@@ -111,17 +111,25 @@
     border-left: 3px #2B2B2B solid;
 }
 
-.abcbrands li {
+.abcbrands a,
+.abcbrands li{
     color: #000;
 
     font-family: 'Halant', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 178%;
     /* 2.4475rem */
     letter-spacing: 0.055rem;
 }
+
+.abcbrands a:hover{
+    text-decoration: underline;
+    font-weight: 600;
+    /* font-size: 1.2rem; */
+}
+
 .footer {
     position: fixed;
     bottom: 0;

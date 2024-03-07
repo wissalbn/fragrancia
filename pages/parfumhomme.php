@@ -25,7 +25,7 @@
             <div class="col-2">
                 <div class="filter">
                     <form action="" method="get">
-                        <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                        <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                         <div class="scroll-area">
                             <?php
                             require_once 'connection.php';
@@ -47,7 +47,7 @@
 
                         <hr>
 
-                        <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                        <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                         <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Parfum" <?php if (isset($_GET['type']) && in_array('Eau de Parfum', $_GET['type'])) echo "checked"; ?>>Eau de Parfum<br>
                         <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Toilette" <?php if (isset($_GET['type']) && in_array('Eau de Toilette', $_GET['type'])) echo "checked"; ?>>Eau de Toilette
                     </form>
@@ -61,7 +61,7 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <form action="" method="get">
-                                <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                                <div class="filter-title">MARQUES <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                                 <div class="scroll-area">
                                     <?php
                                     require_once 'connection.php';
@@ -83,7 +83,7 @@
 
                                 <hr>
 
-                                <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa fa-search"></i></button></div>
+                                <div class="filter-title">TYPE <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass" style="color: #e29961;"></i></i></button></div>
                                 <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Parfum" <?php if (isset($_GET['type']) && in_array('Eau de Parfum', $_GET['type'])) echo "checked"; ?>>Eau de Parfum<br>
                                 <input type="checkbox" class="checkbox-custom" name="type[]" value="Eau de Toilette" <?php if (isset($_GET['type']) && in_array('Eau de Toilette', $_GET['type'])) echo "checked"; ?>>Eau de Toilette
                             </form>

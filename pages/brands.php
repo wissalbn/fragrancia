@@ -48,18 +48,19 @@
                     <div class="abctitle"><?php echo $alphabet; ?></div>
                     <div class="abcbrands">
                         <ul>
-                            
                             <?php
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<li>" . $row['NOMMARQ'] . "</li>";
+                                    $brand_url = str_replace('_',' ', $row['NOMMARQ']);
+                                    echo "<li><a href='../pages/brandproduct.php?brand=" . urlencode($brand_url) . "'>" . $row['NOMMARQ'] . "</a></li>";
                                 }
                             } else {
-                                echo "<li></li>";
+                                echo "<li>Aucun produit dans cette catégorie!</li>";
                             }
                             ?>
                         </ul>
                     </div>
+
                 </div>
             <?php } ?>
         </div>

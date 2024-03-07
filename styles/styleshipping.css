@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    padding: 8% 10%;
+}
+
+
+.row {
+    --bs-gutter-x: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.main h1 {
+    color: #2b2b2b;
+
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 3.02081rem */
+    letter-spacing: 0.125rem;
+    margin-bottom: 5%;
+}
+
+p {
+    text-align: left;
+    color: #000;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+
+}
+
+.header {
+    background-color: rgba(218, 193, 187, 1);
+}
+
+
+.label-content {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-left: 6%;
+}
+
+.label-container {
+    display: inline-block;
+    padding: 2%;
+    margin-right: 5%;
+    text-align: center;
+
+}
+
+span {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}

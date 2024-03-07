@@ -18,8 +18,8 @@
                     <li>
                         <div class="ellipse"></div>
                     </li>
-                    <li><a href="aboutus.php">Qui sommes-nous?</a></li>
-                    <li><a href="contact.php">Nous contacter</a></li>
+                    <li><a href="../pages/aboutus.php">Qui sommes-nous?</a></li>
+                    <li><a href="../pages/contact.php">Nous contacter</a></li>
                 </ul>
             </div>
             <div class="col">
@@ -28,8 +28,8 @@
                     <li>
                         <div class="ellipse"></div>
                     </li>
-                    <li><a href="livraison.php">Livraison</a></li>
-                    <li><a href="retourproduit.php">Condition de retour</a></li>
+                    <li><a href="../pages/shipping.php">Livraison</a></li>
+                    <li><a href="../pages/return.php">Condition de retour</a></li>
                 </ul>
             </div>
             <div class="col">

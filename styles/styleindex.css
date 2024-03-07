@@ -8,7 +8,7 @@
 
 .container-header {
     width: 100%;
-    background: url("../images/acceuil.png"), lightgray 0px 0px / 100% 110.714% no-repeat;
+    background: url("../images/accueil.png"), lightgray 0px 0px / 100% 110.714% no-repeat;
     height: 56rem;
     flex-shrink: 0;
 

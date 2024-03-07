@@ -7,6 +7,7 @@
 }
 .main{
     padding: 0 10%;
+    margin-bottom: 5%;
 }
 .row {
     --bs-gutter-x: 0 !important;
@@ -67,3 +68,7 @@
     width: 15rem;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+}

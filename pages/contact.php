@@ -16,6 +16,7 @@
             <div class="col-md-6 col-info">
                 <section class="contact-info">
                     <div class="info">
+                    <h1 class="title">COORDONNEES</h1>
                         <p><img src="../images/icones/cercle-enveloppe.png" alt="email" class="a"><a href="mailto:wissal.benali22@ump.ac.ma">wissal.benali22@ump.ac.ma</a></p>
                         <p><img src="../images/icones/cercle-enveloppe.png" alt="email" class="a"><a href="mailto:rajae.boufoul22@ump.ac.ma">rajae.boufoul22@ump.ac.ma</a></p>
                         <p><img src="../images/icones/localisation.png" alt="email" class="a"><a href="http://www.esto.ump.ma">Ecole Supérieur de Technologie Oujda, UMPO</a></p>
@@ -36,7 +37,7 @@
                         </section>
                         <section class="form-row">
                             <div class="col-md-12 mb-3">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Email*" required>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="E-mail*" required>
                             </div>
                         </section>
                         <section class="form-row">

@@ -13,7 +13,7 @@ footer {
     background: linear-gradient(to right, #2B2B2B, #534b48);
     color: #fff;
     padding: 50px 0 10px;
-    border-top-right-radius: 100px;
+    /* border-top-right-radius: 100px; */
 }
 
 footer .footer-row {

@@ -16,7 +16,7 @@
         </div>
         <div class="navbar">
             <div class="logo">
-                <a href="../pages/index.php"><img src="../images/fragrancia.png" alt="Fragrancia"></a>
+                <a href="../pages/index.php"><img src="../images/fragrancia.png" alt="Fragrancia" title="Accueil"></a>
             </div>
             <ul class="links">
                 <li><a href="../pages/index.php">ACCUEIL</a></li>
@@ -32,8 +32,8 @@
                     </div>
             </ul>
             <div class="icon">
-                <a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN"></a>
-                <a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier"></a>
+                <a href="#" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
+                <a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
             </div>
 
             <div class="toggle-btn">

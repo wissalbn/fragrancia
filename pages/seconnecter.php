@@ -13,7 +13,7 @@
 <body>
     <div class="main">
         <?php include("../pages/header.php"); ?>
-        <div class="all row mt-1 main2"> <!-- Ajout de la classe mt-1 pour réduire l'espace -->
+        <div class="all row mt-1 main2"> 
             <div class="col-md-6 col-img">
                 <div >
                     <img src="../images/inscrire_connect.png" class="image">

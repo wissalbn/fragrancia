@@ -13,13 +13,15 @@
 <body>
     <div class="main">
         <?php include("../pages/header.php"); ?>
-        <div class="all row mt-1 main2"> <!-- Ajout de la classe mt-1 pour réduire l'espace -->
+        <div class="all row mt-1 main2">
+             <div class="row"><!-- Ajout de la classe mt-1 pour réduire l'espace -->
             <div class="col-md-6 col-img">
                 <div >
-                    <img src="../images/inscrire_connect.png" class="image">
+                    <img src="../images/inscrire_connect.png" class="img-fluid">
                 </div>
             </div>
-            <div class="col-md-6 col">
+            
+                <div class="col-md-6 col">
                 <div class="c1">
                     <h1>BON RETOUR!</h1>
                     <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
@@ -30,6 +32,8 @@
                     </form>
                 </div>
             </div>
+            </div>
+            
         </div>
     </div>
 

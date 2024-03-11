@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 25 fév. 2024 à 00:07
+-- Généré le : lun. 11 mars 2024 à 17:23
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -20,6 +20,131 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `parfumerie`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+CREATE TABLE `categories` (
+  `IDCAT` int(11) NOT NULL,
+  `NOMCAT` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`IDCAT`, `NOMCAT`) VALUES
+(1, 'Parfum femme'),
+(2, 'Parfum homme'),
+(3, 'Coprs et bain');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+CREATE TABLE `commande` (
+  `IDCOMMANDE` int(11) NOT NULL,
+  `IDCLIENT` int(11) NOT NULL,
+  `TOTAUX` float DEFAULT NULL,
+  `DATECOMMANDE` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `marque`
+--
+
+CREATE TABLE `marque` (
+  `NOMMARQ` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `marque`
+--
+
+INSERT INTO `marque` (`NOMMARQ`) VALUES
+('Annayake'),
+('Armani'),
+('Azzaro'),
+('Berdoues'),
+('Biotherm'),
+('Biotherm Homme'),
+('Cacharel'),
+('Calvin Klein'),
+('Caron'),
+('Cerruti'),
+('Chloé'),
+('Clarins'),
+('ClarinsMen'),
+('Clinique'),
+('Coach'),
+('Decléor'),
+('Diesel'),
+('DIOR'),
+('Dolce & Gabbana'),
+('Emanuel Ungaro'),
+('Givenchy'),
+('Guerlain'),
+('HERMÈS'),
+('Hérôme'),
+('Hugo Boss'),
+('Issey Miyake'),
+('Jean Paul Gaultier'),
+('Kenzo'),
+('Lancôme'),
+('Lolita Lempicka'),
+('MONCLER'),
+('Montblanc'),
+('Mugler'),
+('Nina Ricci'),
+('Paco Rabanne'),
+('Shiseido'),
+('SISLEY'),
+('Valentino'),
+('Valmont'),
+('Viktor & Rolf'),
+('Yves Saint Laurent'),
+('Zadig & Voltaire');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `panier`
+--
+
+CREATE TABLE `panier` (
+  `IDPANIER` int(11) NOT NULL,
+  `IDCLIENT` int(11) NOT NULL,
+  `IDPROD` int(11) NOT NULL,
+  `QUANTITE` int(11) NOT NULL,
+  `TOTAL` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `privilege`
+--
+
+CREATE TABLE `privilege` (
+  `IDPRIVILEGE` int(11) NOT NULL,
+  `NOMPRIVLG` varchar(20) DEFAULT NULL,
+  `DESC` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `privilege`
+--
+
+INSERT INTO `privilege` (`IDPRIVILEGE`, `NOMPRIVLG`, `DESC`) VALUES
+(1, 'admin', 'accès au système complet'),
+(2, 'client', 'accès limité');
 
 -- --------------------------------------------------------
 
@@ -147,9 +272,78 @@ INSERT INTO `produit` (`IDPROD`, `IDCAT`, `NOMMARQ`, `NOMPROD`, `PRIXPROD`, `TYP
 (328, 1, 'Nina Ricci', 'L\'Air du Temps', 51.00, 'Eau de Parfum', 'https://cdn2.tendance-parfums.com/media/catalog/product/cache/3cf6c4cce1c91bcdd93502d2cb334c8d/a/i/air-du-temps-nina-ricci-alix-d-reynis-eau-de-parfum-50-ml_1.jpg', 'Une fragrance élégante et raffinée qui célèbre la féminité et la romance. L\'Air du Temps mêle des notes florales de rose et de jasmin à des notes épicées de clou de girofle et de muscade, offrant une expérience olfactive intemporelle et élégante.', 50),
 (329, 1, 'Kenzo', 'Flower by Kenzo Ikebana', 63.00, 'Eau de Parfum', 'https://cdn2.tendance-parfums.com/media/catalog/product/cache/3cf6c4cce1c91bcdd93502d2cb334c8d/f/l/flower-by-kenzo-ikebana-eau-de-parfum-40-ml_1.jpg', 'Une fragrance florale et raffinée qui célèbre la beauté et l\'élégance. Flower by Kenzo Ikebana mêle des notes florales de pivoine et de freesia à des notes boisées de cèdre et de vétiver, offrant une expérience olfactive poétique et sophistiquée.', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `IDCLIENT` int(11) NOT NULL,
+  `NOMCLIENT` varchar(30) NOT NULL,
+  `CIVILITECLIENT` varchar(5) DEFAULT NULL,
+  `EMAILCLIENT` varchar(50) DEFAULT NULL,
+  `MDPCLIENT` varchar(20) DEFAULT NULL,
+  `TELCLIENT` varchar(10) DEFAULT NULL,
+  `PAYS` char(5) DEFAULT 'Maroc',
+  `VILLECLIENT` varchar(15) DEFAULT NULL,
+  `ADRESSECLIENT` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`IDCLIENT`, `NOMCLIENT`, `CIVILITECLIENT`, `EMAILCLIENT`, `MDPCLIENT`, `TELCLIENT`, `PAYS`, `VILLECLIENT`, `ADRESSECLIENT`) VALUES
+(1, 'wissal', 'mme', 'wissal.benali88@gmail.com', '$2y$10$Ur/nJxBBR3pgR', '0988776655', 'Maroc', 'OUJDA', 'ESTO');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur_privilege`
+--
+
+CREATE TABLE `utilisateur_privilege` (
+  `IDCLIENT` int(11) NOT NULL,
+  `IDPRIVILEGE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`IDCAT`);
+
+--
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`IDCOMMANDE`),
+  ADD KEY `FK_PASSE` (`IDCLIENT`);
+
+--
+-- Index pour la table `marque`
+--
+ALTER TABLE `marque`
+  ADD PRIMARY KEY (`NOMMARQ`);
+
+--
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`IDPANIER`),
+  ADD KEY `FK_CONTIENT` (`IDCLIENT`),
+  ADD KEY `IDPROD` (`IDPROD`);
+
+--
+-- Index pour la table `privilege`
+--
+ALTER TABLE `privilege`
+  ADD PRIMARY KEY (`IDPRIVILEGE`);
 
 --
 -- Index pour la table `produit`
@@ -160,8 +354,45 @@ ALTER TABLE `produit`
   ADD KEY `FK_ASSOCIE` (`NOMMARQ`);
 
 --
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`IDCLIENT`);
+
+--
+-- Index pour la table `utilisateur_privilege`
+--
+ALTER TABLE `utilisateur_privilege`
+  ADD PRIMARY KEY (`IDCLIENT`,`IDPRIVILEGE`),
+  ADD KEY `FK_POSSEDE` (`IDPRIVILEGE`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `IDCAT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `IDCOMMANDE` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `IDPANIER` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `privilege`
+--
+ALTER TABLE `privilege`
+  MODIFY `IDPRIVILEGE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
@@ -170,8 +401,27 @@ ALTER TABLE `produit`
   MODIFY `IDPROD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
 
 --
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `IDCLIENT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `FK_PASSE` FOREIGN KEY (`IDCLIENT`) REFERENCES `utilisateur` (`IDCLIENT`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD CONSTRAINT `FK_CONTIENT` FOREIGN KEY (`IDCLIENT`) REFERENCES `utilisateur` (`IDCLIENT`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `panier_ibfk_1` FOREIGN KEY (`IDPROD`) REFERENCES `produit` (`IDPROD`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `produit`
@@ -179,6 +429,13 @@ ALTER TABLE `produit`
 ALTER TABLE `produit`
   ADD CONSTRAINT `FK_APPARTIENT` FOREIGN KEY (`IDCAT`) REFERENCES `categories` (`IDCAT`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_ASSOCIE` FOREIGN KEY (`NOMMARQ`) REFERENCES `marque` (`NOMMARQ`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `utilisateur_privilege`
+--
+ALTER TABLE `utilisateur_privilege`
+  ADD CONSTRAINT `FK_POSSEDE` FOREIGN KEY (`IDPRIVILEGE`) REFERENCES `privilege` (`IDPRIVILEGE`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_POSSEDE2` FOREIGN KEY (`IDCLIENT`) REFERENCES `utilisateur` (`IDCLIENT`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

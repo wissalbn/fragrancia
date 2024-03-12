@@ -42,7 +42,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <input type="password" name="motdepasse" class="form-control" placeholder="MOT DE PASSE*" required>
+                            <input type="password" name="motdepasse" class="form-control" placeholder="MOT DE PASSE*" minlength="8" required>
                         </div>
                     </div>
                     <div class="row mb-3">

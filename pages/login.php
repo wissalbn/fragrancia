@@ -52,6 +52,7 @@ if(isset($_POST['connexion'])){
                 </div>
             
                 <div class="col-md-6 col">
+<<<<<<< HEAD:pages/seconnecter.php
                     <div class="c1">
                         <h1>BON RETOUR!</h1>
                         <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
@@ -72,6 +73,16 @@ if(isset($_POST['connexion'])){
                         }
                         ?>
                     </div>
+=======
+                <div class="c1">
+                    <h1>BON RETOUR!</h1>
+                    <span> Vous n’avez pas un compte? </span> <a href="../pages/signup.php" class="inscrit">s'inscrire</a>
+                    <form action="#"><div class="formulaire">
+                        <input type="text" placeholder="EMAIL"><br>
+                        <input type="password" placeholder="MOT DE PASSE*"><br>
+                        <button type="submit" class="btnc">CONNEXION</button></div>
+                    </form>
+>>>>>>> 54b532aa11bf7bde42f398d2fef78f101daf61cf:pages/login.php
                 </div>
             </div>
         </div>

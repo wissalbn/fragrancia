@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute SQL statement
     if ($stmt->execute() === TRUE) {
-        echo "New record created successfully";
+        header("Location: ../pages/login.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }

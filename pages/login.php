@@ -24,7 +24,7 @@
                 <div class="col-md-6 col">
                 <div class="c1">
                     <h1>BON RETOUR!</h1>
-                    <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
+                    <span> Vous n’avez pas un compte? </span> <a href="../pages/signup.php" class="inscrit">s'inscrire</a>
                     <form action="#"><div class="formulaire">
                         <input type="text" placeholder="EMAIL"><br>
                         <input type="password" placeholder="MOT DE PASSE*"><br>

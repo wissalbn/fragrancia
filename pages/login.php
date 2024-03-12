@@ -1,32 +1,43 @@
 <?php
 session_start();
-$dbb = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
+require_once("../pages/connection.php");
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
+    // Retrieve form data
+    $emailclient = $_POST['emailclient'];
+    $mdpclient = $_POST['mdpclient'];
 
-if(isset($_POST['connexion'])){
-    // Vérifier si les champs sont remplis
-    if(!empty($_POST['emailclient']) AND !empty($_POST['mdpclient']) ){
-        $emailclient = htmlspecialchars($_POST['emailclient']); 
-        $mdpclient = sha1($_POST['mdpclient']);
+    // Check if the email and password fields are not empty
+    if (!empty($emailclient) && !empty($mdpclient)) {
+        // Hash the password
+        $hashedMotdepasse = password_hash($mdpclient, PASSWORD_DEFAULT);
 
-        
-        $recupUser = $dbb->prepare('SELECT * FROM utilisateur WHERE emailclient= ? and mdpclient = ?');
-        $recupUser->execute(array($emailclient, $mdpclient));
+        // Prepare and execute SQL statement to fetch user data
+        $recupUser = $bdd->prepare('SELECT * FROM utilisateur WHERE EMAILCLIENT= ? and MDPCLIENT = ?');
+        $recupUser->bind_param('ss', $emailclient, $hashedMotdepasse);
+        $recupUser->execute();
 
-      
-        if($recupUser->rowCount() > 0){
+        // Get the result
+        $result = $recupUser->get_result();
+
+        // Check if user exists
+        if ($result->num_rows > 0) {
+            // User found, set session variables and redirect to index.php
             $_SESSION['emailclient'] = $emailclient;
-            $_SESSION['mdpclient'] = $mdpclient;
+            $_SESSION['mdpclient'] = $hashedMotdepasse;
             header('Location: index.php');
-            exit; 
+            exit;
         } else {
+            // User not found, set error message
             $error_message = "*Email ou mot de passe est incorrect !";
         }
     } else {
+        // Fields are empty, set error message
         $error_message = "*Veuillez compléter tous les champs...";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +65,7 @@ if(isset($_POST['connexion'])){
                 <div class="col-md-6 col">
                     <div class="c1">
                         <h1>BON RETOUR!</h1>
-                        <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
+                        <span> Vous n’avez pas un compte? </span> <a href="../pages/signup.php" class="inscrit">s'inscrire</a>
                         <form method="POST" action="">
                             <div class="formulaire">
                                 <input type="text" name="emailclient" placeholder="EMAIL" autocomplete="off"><br>

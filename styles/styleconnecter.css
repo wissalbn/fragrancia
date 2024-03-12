@@ -10,31 +10,40 @@ body {
 .row img{
   width: 45rem;
   height: auto;
+  
 }
 .main2 {
   height: 60% !important;
 }
 
-.col-img {
-  margin-top: -18% !important;
-  /* height: -40% !important; */
 
-}
 
 .col {
   margin-left: 5%;
 }
 
 .c1 {
-  margin-top: 20%;
+  margin-top: 8%;
 }
 
 form {
-  padding-top: 20%;
+  padding-top: 28%;
 }
 
 input {
   padding-right: 20%;
+  border: transparent;
+}
+.error-message{
+  color: red;
+}
+.password-toggle {
+  position: absolute;
+  right: 13%;
+  top: 46%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color:black ;
 }
 
 button {
@@ -43,10 +52,12 @@ button {
   border: none;
   padding: 4px 20px;
   cursor: pointer;
+  
 }
 
 .btnc {
-  margin-left: -37%;
+ margin-right: 31%;
+ margin-top: -5%;
 }
 
 .inscrit {

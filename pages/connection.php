@@ -1,7 +1,7 @@
 <?php
 if($bdd = mysqli_connect('localhost', 'root', '', 'parfumerie'))
 {
-      echo '';                                                                                  
+      echo '';                                                                                    
 }
 else
 {

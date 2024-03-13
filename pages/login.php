@@ -1,32 +1,44 @@
 <?php
-session_start();
-$dbb = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
-
-
-if(isset($_POST['connexion'])){
-    // Vérifier si les champs sont remplis
-    if(!empty($_POST['emailclient']) AND !empty($_POST['mdpclient']) ){
-        $emailclient = htmlspecialchars($_POST['emailclient']); 
-        $mdpclient = sha1($_POST['mdpclient']);
-
-        
-        $recupUser = $dbb->prepare('SELECT * FROM utilisateur WHERE emailclient= ? and mdpclient = ?');
-        $recupUser->execute(array($emailclient, $mdpclient));
-
-      
-        if($recupUser->rowCount() > 0){
-            $_SESSION['emailclient'] = $emailclient;
-            $_SESSION['mdpclient'] = $mdpclient;
-            header('Location: index.php');
-            exit; 
-        } else {
-            $error_message = "*Email ou mot de passe est incorrect !";
-        }
-    } else {
+ 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(empty($_POST['username']) AND empty($_POST['password']) ){
         $error_message = "*Veuillez compléter tous les champs...";
     }
+else{
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $host= "localhost";
+    $dbusername= "root";
+    $dbpassword = "";
+    $dbname = "parfumerie";
+
+    $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
+
+    if($conn->connect_error){
+        die("Connection failed: ". $conn->connect_error);
+
+    }
+
+    $query = "SELECT *FROM utilisateur WHERE EMAILCLIENT='$username' AND MDPCLIENT='$password'";
+
+    $result = $conn->query($query);
+    if($result->num_rows == 1){
+        header("Location: index.php");
+
+    }
+    else{
+        $error_message = "*Email ou mot de passe est incorrect !";
+        
+    }
+    $conn->close();
+
 }
+}
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,9 +69,9 @@ if(isset($_POST['connexion'])){
                         <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
                         <form method="POST" action="">
                             <div class="formulaire">
-                                <input type="text" name="emailclient" placeholder="EMAIL" autocomplete="off"><br>
+                                <input type="text" name="username" placeholder="EMAIL" autocomplete="off"><br>
                                 <div style="position: relative;">
-                                <input type="password" name="mdpclient" placeholder="MOT DE PASSE*" autocomplete="off" id="password-input">
+                                <input type="password" name="password" placeholder="MOT DE PASSE*" autocomplete="off" id="password-input">
                                 <span class="password-toggle" id="password-toggle">&#x1f441;</span>
                             </div><br>
                                 <button type="submit" name="connexion" class="btnc">CONNEXION</button>

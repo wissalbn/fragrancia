@@ -4,6 +4,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($_POST['username']) AND empty($_POST['password']) ){
         $error_message = "*Veuillez compléter tous les champs...";
     }
+
 else{
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -39,7 +40,6 @@ else{
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +66,7 @@ else{
                 <div class="col-md-6 col">
                     <div class="c1">
                         <h1>BON RETOUR!</h1>
-                        <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
+                        <span> Vous n’avez pas un compte? </span> <a href="../pages/signup.php" class="inscrit">s'inscrire</a>
                         <form method="POST" action="">
                             <div class="formulaire">
                                 <input type="text" name="username" placeholder="EMAIL" autocomplete="off"><br>

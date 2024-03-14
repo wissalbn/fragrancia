@@ -38,6 +38,7 @@ if (isset($_POST['connexion'])) {
         header('Location: login.php');
         exit;
     }
+    $bdd->close();
 }
 ?>
 

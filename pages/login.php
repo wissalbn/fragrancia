@@ -1,23 +1,19 @@
-
 <?php
 session_start();
 $dbb = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
-
 
 if(isset($_POST['connexion'])){
     // Vérifier si les champs sont remplis
     if(!empty($_POST['emailclient']) AND !empty($_POST['mdpclient']) ){
         $emailclient= htmlspecialchars($_POST['emailclient']);
-        $mdpclient= password_hash($_POST['mdpclient'], PASSWORD_DEFAULT);
+        $mdpclient= $_POST['mdpclient'];
 
-        
-        $recupUser = $dbb->prepare('SELECT * FROM utilisateur WHERE emailclient= ? and mdpclient = ?');
-        $recupUser->execute(array($emailclient, $mdpclient));
-
-      
-        if($recupUser->rowCount() > 0){
+        // Récupérer le mot de passe haché de la base de données
+        $recupUser = $dbb->prepare('SELECT * FROM utilisateur WHERE emailclient= ?');
+        $recupUser->execute(array($emailclient));
+        $user = $recupUser->fetch();
+        if($user && password_verify($mdpclient, $user['MDPCLIENT'])){
             $_SESSION['emailclient'] = $emailclient;
-            $_SESSION['mdpclient'] = $mdpclient;
             header('Location: index.php');
             exit; 
         } else {
@@ -55,7 +51,7 @@ if(isset($_POST['connexion'])){
                 <div class="col-md-6 col">
                     <div class="c1">
                         <h1>BON RETOUR!</h1>
-                        <span> Vous n’avez pas un compte? </span> <a href="s'inscrire.php" class="inscrit">s'inscrire</a>
+                        <span> Vous n’avez pas un compte? </span> <a href="signup.php" class="inscrit">s'inscrire</a>
                         <form method="POST" action="">
                             <div class="formulaire">
                                 <input type="text" name="emailclient" placeholder="EMAIL" autocomplete="off"><br>

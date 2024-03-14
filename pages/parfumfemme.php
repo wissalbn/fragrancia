@@ -167,6 +167,7 @@
     </div>
     <footer><?php include("../pages/footer.php") ?></footer>
     <script src="../js/jsproduit.js"></script>
+    <script src="../js/jscart.js"></script>
 </body>
 
 </html>

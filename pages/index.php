@@ -42,7 +42,7 @@ $all_product = $bdd->query($sql);
 
             ?>
                 <div class="product-card">
-
+                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
                     <div class="image">
                         <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
                     </div>
@@ -50,6 +50,7 @@ $all_product = $bdd->query($sql);
                     <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                     <div class="price"><?php echo $row["PRIXPROD"]; ?>€</div>
                     <button class="discover">DECOUVRIR</button>
+                </a>
 
                 </div>
             <?php } ?>

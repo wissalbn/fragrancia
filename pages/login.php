@@ -1,22 +1,18 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
-$error_message = "";
+$error_message="";
 if (isset($_POST['connexion'])) {
     if (!empty($_POST['emailclient']) && !empty($_POST['mdpclient'])) {
         $emailclient = htmlspecialchars($_POST['emailclient']);
         $mdpclient = $_POST['mdpclient'];
-
-        echo "Email: " . $emailclient . "<br>";
-        echo "Password: " . $mdpclient . "<br>";
-
         $recupUser = $bdd->prepare('SELECT * FROM utilisateur WHERE EMAILCLIENT = ?');
         $recupUser->execute(array($emailclient));
         $user = $recupUser->fetch();
 
         if ($user != false) {
             if (password_verify($mdpclient, $user['MDPCLIENT'])) {
-                $_SESSION['emailclient'] = $emailclient;
+                $_SESSION['userId'] = $user['IDCLIENT'];
                 header('Location: index.php');
                 exit;
             } else {

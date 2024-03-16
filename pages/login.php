@@ -1,21 +1,29 @@
 <?php
 session_start();
-require_once('../pages/connection.php');
+$bdd = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
+$error_message = "";
 if (isset($_POST['connexion'])) {
-    if (!empty($_POST['emailclient']) and !empty($_POST['mdpclient'])) {
+    if (!empty($_POST['emailclient']) && !empty($_POST['mdpclient'])) {
         $emailclient = htmlspecialchars($_POST['emailclient']);
         $mdpclient = $_POST['mdpclient'];
 
-        $recupUser = $bdd->prepare('SELECT * FROM utilisateur WHERE EMAILCLIENT= ?');
+        echo "Email: " . $emailclient . "<br>";
+        echo "Password: " . $mdpclient . "<br>";
+
+        $recupUser = $bdd->prepare('SELECT * FROM utilisateur WHERE EMAILCLIENT = ?');
         $recupUser->execute(array($emailclient));
         $user = $recupUser->fetch();
-        if ($user && password_verify($mdpclient, $user['MDPCLIENT'])) {
-            $_SESSION['emailclient'] = $emailclient;
-            header('Location: index.php');
-            exit;
-        } else {
 
-            $error_message = "*Email ou mot de passe est incorrect !";
+        if ($user != false) {
+            if (password_verify($mdpclient, $user['MDPCLIENT'])) {
+                $_SESSION['emailclient'] = $emailclient;
+                header('Location: index.php');
+                exit;
+            } else {
+                $error_message = "*Email ou mot de passe incorrect !";
+            }
+        } else {
+            $error_message = "*Utilisateur non trouvé !";
         }
     } else {
         $error_message = "*Veuillez compléter tous les champs...";
@@ -38,7 +46,6 @@ if (isset($_POST['connexion'])) {
         header('Location: login.php');
         exit;
     }
-    $bdd->close();
 }
 ?>
 
@@ -69,7 +76,7 @@ if (isset($_POST['connexion'])) {
                     <div class="c1">
                         <h1>BON RETOUR!</h1>
                         <span> Vous n’avez pas un compte? </span> <a href="signup.php" class="inscrit">s'inscrire</a>
-                        <form method="POST" action="">
+                        <form method="POST" action="login.php">
                             <div class="formulaire">
                                 <input type="text" name="emailclient" placeholder="EMAIL" autocomplete="off"><br>
                                 <div style="position: relative;">

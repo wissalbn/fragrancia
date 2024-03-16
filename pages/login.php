@@ -20,13 +20,13 @@ if (isset($_POST['connexion'])) {
                 header('Location: index.php');
                 exit;
             } else {
-                $error_message = "*Email ou mot de passe incorrect !";
+                $_SESSION['error_message'] = "*Email ou mot de passe incorrect !";
             }
         } else {
-            $error_message = "*Utilisateur non trouvé !";
+            $_SESSION['error_message'] = "*Utilisateur non trouvé !";
         }
     } else {
-        $error_message = "*Veuillez compléter tous les champs...";
+        $_SESSION['error_message']= "*Veuillez compléter tous les champs...";
     }
 
     $session_timeout = 7200; // 2 hours * 60 minutes * 60 seconds
@@ -87,10 +87,12 @@ if (isset($_POST['connexion'])) {
                             </div>
                         </form>
                         <?php
-
-                        if (isset($error_message)) {
-                            echo '<span class="error-message">' . $error_message . '</span>';
+                        
+                        if (isset($_SESSION['error_message'])) {
+                            echo '<span class="error-message">' . $_SESSION['error_message'] . '</span>';
+                            unset($_SESSION['error_message']);
                         }
+
                         ?>
                     </div>
 

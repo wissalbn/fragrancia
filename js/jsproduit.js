@@ -30,31 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function addToCart(event) {
-    const productId = event.target.dataset.productId;
-    console.log('Product ID:', productId);
-    
-    fetch('/add-to-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ productId })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to add product to cart');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Product added to cart:', data);
-        alert("produit ajouté!");
-        // Optionally, show a success message to the user
-    })
-    .catch(error => {
-        console.error('Error adding product to cart:', error.message);
-        alert("produit non aouté");
-        // Optionally, show an error message to the user
-    });
-}
+

@@ -32,7 +32,7 @@
                     </div>
             </ul>
             <div class="icon">
-                <a href="../pages/signup.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
+                <a href="../pages/login.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
                 <a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
             </div>
 

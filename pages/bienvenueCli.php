@@ -3,12 +3,12 @@ session_start();
 include("connection.php");
 
 // Vérifier si l'utilisateur est connecté
-if (isset($_SESSION['emailclient'])) {
-    $emailclient = $_SESSION['emailclient'];
+if (isset($_SESSION['userId'])) {
+    $userid = $_SESSION['userId'];
 
     // Récupérer les informations du client depuis la base de données
-    $stmt = $bdd->prepare('SELECT * FROM utilisateur WHERE EMAILCLIENT = ?');
-    $stmt->bind_param('s', $emailclient);
+    $stmt = $bdd->prepare('SELECT * FROM utilisateur WHERE IDCLIENT = ?');
+    $stmt->bind_param('s', $userid);
     $stmt->execute();
     $result = $stmt->get_result();
 

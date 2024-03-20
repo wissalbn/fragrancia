@@ -23,14 +23,8 @@
                 <li><a href="../pages/parfumfemme.php">PARFUM FEMME</a></li>
                 <li><a href="../pages/parfumhomme.php">PARFUM HOMME</a></li>
                 <li><a href="../pages/corpsbain.php">COPRS &amp; BAIN</a></li>
-                <li class="menudown">
-                    <a href="../pages/brands.php">MARQUES</a>
-                    <div class="menudown-content">
-                        <a href="#">Brand 1</a>
-                        <a href="#">Brand 2</a>
-                        <a href="#">Brand 3</a>
-                    </div>
-                </li></ul>
+                <li><a href="../pages/brands.php">MARQUES</a></li>
+            </ul>
             <div class="icon">
                 <a href="../pages/signup.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
                 <a href="../pages/cart.php" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
@@ -49,7 +43,7 @@
                 <li><a href="../pages/corpsbain.php">COPRS &amp; BAIN</a></li>
                 <li><a href="../pages/brands.php">MARQUES</a></li>
                 <li></li>
-                <li><a href="../pages/signup.php" class="action-btn">S'IDENTIFIER</a></li>
+                <li><a href="../pages/signup.php" class="action-btn">MON COMPTE</a></li>
                 <li><a href="../pages/cart.php" class="action-btn">PANIER</a></li>
 
 

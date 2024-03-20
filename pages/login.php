@@ -12,13 +12,10 @@ if (isset($_POST['connexion'])) {
 
         if ($user != false) {
             if (password_verify($mdpclient, $user['MDPCLIENT'])) {
-<<<<<<< HEAD
-                $_SESSION['emailclient'] = $emailclient;
-                header('Location: bienvenueCli.php');
-=======
+
                 $_SESSION['userId'] = $user['IDCLIENT'];
-                header('Location: index.php');
->>>>>>> a1642a041f0ff44590348cc5af2ed21064998116
+                header('Location: bienvenueCli.php');
+
                 exit;
             } else {
                 $_SESSION['error_message'] = "*Email ou mot de passe incorrect !";
@@ -32,7 +29,7 @@ if (isset($_POST['connexion'])) {
 
     $session_timeout = 7200; // 2 hours * 60 minutes * 60 seconds
 
-    if (isset($_SESSION['last_activity']) && isset($_SESSION['emailclient'])) {
+    if (isset($_SESSION['last_activity']) && isset($_SESSION['userId'])) {
         $elapsed_time = time() - $_SESSION['userId'];
 
         if ($elapsed_time > $session_timeout) {

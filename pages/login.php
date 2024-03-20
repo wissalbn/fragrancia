@@ -12,8 +12,13 @@ if (isset($_POST['connexion'])) {
 
         if ($user != false) {
             if (password_verify($mdpclient, $user['MDPCLIENT'])) {
+<<<<<<< HEAD
+                $_SESSION['emailclient'] = $emailclient;
+                header('Location: bienvenueCli.php');
+=======
                 $_SESSION['userId'] = $user['IDCLIENT'];
                 header('Location: index.php');
+>>>>>>> a1642a041f0ff44590348cc5af2ed21064998116
                 exit;
             } else {
                 $_SESSION['error_message'] = "*Email ou mot de passe incorrect !";

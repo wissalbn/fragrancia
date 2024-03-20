@@ -21,13 +21,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Frontend JavaScript
-document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('.discover');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
-    });
-});
-
 

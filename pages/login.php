@@ -28,7 +28,7 @@ if (isset($_POST['connexion'])) {
     $session_timeout = 7200; // 2 hours * 60 minutes * 60 seconds
 
     if (isset($_SESSION['last_activity']) && isset($_SESSION['emailclient'])) {
-        $elapsed_time = time() - $_SESSION['last_activity'];
+        $elapsed_time = time() - $_SESSION['userId'];
 
         if ($elapsed_time > $session_timeout) {
             session_unset();

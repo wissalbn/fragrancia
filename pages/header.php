@@ -30,10 +30,10 @@
                         <a href="#">Brand 2</a>
                         <a href="#">Brand 3</a>
                     </div>
-            </ul>
+                </li></ul>
             <div class="icon">
                 <a href="../pages/signup.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
-                <a href="#" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
+                <a href="../pages/cart.php" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
             </div>
 
             <div class="toggle-btn">
@@ -50,7 +50,7 @@
                 <li><a href="../pages/brands.php">MARQUES</a></li>
                 <li></li>
                 <li><a href="../pages/signup.php" class="action-btn">S'IDENTIFIER</a></li>
-                <li><a href="#" class="action-btn">PANIER</a></li>
+                <li><a href="../pages/cart.php" class="action-btn">PANIER</a></li>
 
 
             </div>

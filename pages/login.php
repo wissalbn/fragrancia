@@ -17,7 +17,7 @@ if (isset($_POST['connexion'])) {
                 header('Location: bienvenueCli.php');
 
                 $_SESSION['userId'] = $user['IDCLIENT'];
-                header('Location: index.php');
+                header('Location: bienvenueCli.php');
 
                 exit;
             } else {
@@ -30,23 +30,6 @@ if (isset($_POST['connexion'])) {
         $_SESSION['error_message']= "*Veuillez compléter tous les champs...";
     }
 
-    $session_timeout = 7200; // 2 hours * 60 minutes * 60 seconds
-
-    if (isset($_SESSION['last_activity']) && isset($_SESSION['emailclient'])) {
-        $elapsed_time = time() - $_SESSION['last_activity'];
-
-        if ($elapsed_time > $session_timeout) {
-            session_unset();
-            session_destroy();
-            header('Location: login.php');
-            exit;
-        } else {
-            $_SESSION['last_activity'] = time();
-        }
-    } else {
-        header('Location: login.php');
-        exit;
-    }
 }
 ?>
 
@@ -100,7 +83,6 @@ if (isset($_POST['connexion'])) {
                 </div>
             </div>
         </div>
-
         <footer>
             <?php include("../pages/footer.php"); ?>
         </footer>

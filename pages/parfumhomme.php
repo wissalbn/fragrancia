@@ -120,7 +120,7 @@
                             while ($row = mysqli_fetch_assoc($all_product)) {
                     ?>
                                 <div class="product-card">
-                                    <form action="" method="POST">
+                                    <form id="addToCartForm" action="../pages/cartform.php" method="POST">
                                         <input type="hidden" name="productId" value="<?php echo $row["IDPROD"]; ?>">
                                         <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
                                             <div class="image">
@@ -129,7 +129,7 @@
                                             <div class="name"><?php echo $row["NOMPROD"]; ?></div>
                                             <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                                             <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                            <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
+                                            <button class="discover" type="submit" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
                                         </a>
                                     </form>
                                 </div>
@@ -147,7 +147,8 @@
                         ?>
 
                             <div class="product-card">
-                                <form action="#" method="POST">
+                                <form class="addToCartForm" action="../pages/cartform.php" method="POST">
+                                    <input type="hidden" name="action" value="addToCart">
                                     <input type="hidden" name="productId" value="<?php echo $row["IDPROD"]; ?>">
                                     <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
                                         <div class="image">
@@ -156,10 +157,11 @@
                                         <div class="name"><?php echo $row["NOMPROD"]; ?></div>
                                         <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                                         <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                        <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
+                                        <button type="submit" class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
                                     </a>
                                 </form>
                             </div>
+
 
                     <?php
                         }

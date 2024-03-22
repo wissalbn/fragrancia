@@ -27,23 +27,6 @@ if (isset($_POST['connexion'])) {
         $_SESSION['error_message']= "*Veuillez compléter tous les champs...";
     }
 
-    $session_timeout = 7200; // 2 hours * 60 minutes * 60 seconds
-
-    if (isset($_SESSION['last_activity']) && isset($_SESSION['userId'])) {
-        $elapsed_time = time() - $_SESSION['userId'];
-
-        if ($elapsed_time > $session_timeout) {
-            session_unset();
-            session_destroy();
-            header('Location: login.php');
-            exit;
-        } else {
-            $_SESSION['last_activity'] = time();
-        }
-    } else {
-        header('Location: login.php');
-        exit;
-    }
 }
 ?>
 
@@ -97,7 +80,6 @@ if (isset($_POST['connexion'])) {
                 </div>
             </div>
         </div>
-
         <footer>
             <?php include("../pages/footer.php"); ?>
         </footer>

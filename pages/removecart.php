@@ -5,7 +5,7 @@ require('../pages/connection.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["productId"])) {
         $productId = $_POST["productId"];
-        deleteProduct($productId); // Call the deleteProduct function with the productId
+        deleteProduct($productId);
     } else {
         echo "Product ID is missing.";
     }
@@ -23,6 +23,7 @@ function deleteProduct($productId)
     global $bdd;
     $idClient = $_SESSION['userId'];
 
+    // Retrieve the cart ID for the user
     $cartQuery = "SELECT IDPANIER FROM client_cart WHERE IDCLIENT = ?";
     $cartStmt = $bdd->prepare($cartQuery);
     $cartStmt->bind_param('i', $idClient);
@@ -37,15 +38,15 @@ function deleteProduct($productId)
     $cartRow = $cartResult->fetch_assoc();
     $cartId = $cartRow['IDPANIER'];
 
+    // Delete the product from the cart
     $sql = "DELETE FROM panier WHERE IDPANIER = ? AND IDPROD = ?";
     $stmt = $bdd->prepare($sql);
-
     $stmt->bind_param('ii', $cartId, $productId);
 
     if ($stmt->execute()) {
         echo "Product deleted successfully";
     } else {
-        echo "Error deleting product: " . $bdd->error;
+        echo "Error deleting product: " . $stmt->error;
     }
 
     $stmt->close();

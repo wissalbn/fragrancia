@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="col-10">
-            <h1>PRODUITS PARFUM FEMME</h1>
+                <h1>PRODUITS PARFUM FEMME</h1>
                 <div class="filtermobile">
                     <button id="openFilterModal"><i class="fa-solid fa-plus" style="color: #e6a970;"></i> Ajouter des filtres</button>
                     <div id="filterModal" class="modal">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="product-container">
                     <?php
                     if (isset($_GET['brands']) || isset($_GET['type'])) {
@@ -120,16 +120,20 @@
                             while ($row = mysqli_fetch_assoc($all_product)) {
                     ?>
                                 <div class="product-card">
-                                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
-                                    <div class="image">
-                                        <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
-                                    </div>
-                                    <div class="name"><?php echo $row["NOMPROD"]; ?></div>
-                                    <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
-                                    <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                    <button class="discover">AJOUTER AU PANIER</button>
-                                </a>
-                            </div>
+                                    <form class="addToCartForm" action="../pages/cartform.php" method="POST">
+                                    <input type="hidden" name="action" value="addToCart">
+                                    <input type="hidden" name="productId" value="<?php echo $row["IDPROD"]; ?>">
+                                        <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+                                            <div class="image">
+                                                <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
+                                            </div>
+                                            <div class="name"><?php echo $row["NOMPROD"]; ?></div>
+                                            <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
+                                            <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
+                                            <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
+                                        </a>
+                                    </form>
+                                </div>
                             <?php
                             }
                         } else {
@@ -142,20 +146,24 @@
                         $all_product = $bdd->query($prod);
                         while ($row = mysqli_fetch_assoc($all_product)) {
                         ?>
-                        
+
                             <div class="product-card">
-                                <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
-                                <div class="image">
-                                    <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
-                                </div>
-                                <div class="name"><?php echo $row["NOMPROD"]; ?></div>
-                                <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
-                                <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                            </a>
-                                <button class="discover">AJOUTER AU PANIER</button>
-                            
+                                <form class="addToCartForm" action="../pages/cartform.php" method="POST">
+                                <input type="hidden" name="action" value="addToCart">
+                                    <input type="hidden" name="productId" value="<?php echo $row["IDPROD"]; ?>">
+                                    <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
+                                        <div class="image">
+                                            <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
+                                        </div>
+                                        <div class="name"><?php echo $row["NOMPROD"]; ?></div>
+                                        <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
+                                        <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
+                                    </a>
+
+                                    <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
+                                </form>
                             </div>
-                        
+
                     <?php
                         }
                     }
@@ -168,6 +176,7 @@
     <footer><?php include("../pages/footer.php") ?></footer>
     <script src="../js/jsproduit.js"></script>
     <script src="../js/jscart.js"></script>
+
 </body>
 
 </html>

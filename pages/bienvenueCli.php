@@ -2,11 +2,9 @@
 session_start();
 include("connection.php");
 
-// Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['userId'])) {
     $userid = $_SESSION['userId'];
 
-    // Récupérer les informations du client depuis la base de données
     $stmt = $bdd->prepare('SELECT * FROM utilisateur WHERE IDCLIENT = ?');
     $stmt->bind_param('s', $userid);
     $stmt->execute();
@@ -56,6 +54,9 @@ if (isset($_SESSION['userId'])) {
         <td><strong>Adresse:</strong></td>
         <td><?php echo $user['ADRESSECLIENT']; ?></td>
     </tr>
+    <form action="logout.php" method="post">
+    <button type="submit" name="logout">Logout</button>
+</form>
 </table><br><br>
 
             </div>

@@ -20,5 +20,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
+document.addEventListener("DOMContentLoaded", function() {
+    const addToCartButtons = document.querySelectorAll(".discover");
+    addToCartButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            const form = button.closest("form");
+            if (form) {
+                form.submit();
+            } else {
+                alert("Form not found!");
+            }
+        });
+    });
+});
 

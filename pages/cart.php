@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +11,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../styles/stylecart.css">
 
 
 
@@ -23,7 +23,9 @@ session_start();
         <hr>
     </div>
     <div class="main">
-        <?php if (!isset($_SESSION['userId'])) { ?>
+
+        <?php
+        if (!isset($_SESSION['userId'])) { ?>
             <div class="contenaire1">
                 <div class="row">
                     <div class="col-12">
@@ -48,7 +50,7 @@ session_start();
                         <div class="title">VOTRE PANIER</div>
                     </div>
                     <div class="col-6">
-                        <div class="backlink"><a href="#">Continuer les achats</a></div>
+                        <div class="backlink"><a href="javascript:void(0);" onclick="goBack()">Continuer les achats</a></div>
                     </div>
                 </div>
                 <div class="row">
@@ -60,15 +62,16 @@ session_start();
                 require_once("../pages/connection.php");
                 $userId = $_SESSION['userId'];
                 $sql = "SELECT p.IDPROD, p.NOMPROD, p.PRIXPROD, p.URLIMAGE, pa.QUANTITE FROM panier AS pa 
-        JOIN produit AS p ON pa.IDPROD = p.IDPROD 
-        JOIN client_cart AS cc ON pa.IDPANIER = cc.IDPANIER 
-        WHERE cc.IDCLIENT = ?";
+            JOIN produit AS p ON pa.IDPROD = p.IDPROD 
+            JOIN client_cart AS cc ON pa.IDPANIER = cc.IDPANIER 
+            WHERE cc.IDCLIENT = ?";
                 $stmt = $bdd->prepare($sql);
                 $stmt->bind_param('i', $userId);
                 $stmt->execute();
                 $result = $stmt->get_result();
-                ?>
 
+                ?>
+                <?php if ($result->num_rows > 0) { ?>
                 <div id="cart-items">
                     <?php while ($row = $result->fetch_assoc()) : ?>
                         <div class="row cart-item" data-product-id="<?php echo $row['IDPROD']; ?>">
@@ -98,20 +101,21 @@ session_start();
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                
+
                                 <div class="subtotal"><?php echo $row["PRIXPROD"] * $row["QUANTITE"]; ?></div>
                             </div>
                         </div>
                     <?php endwhile; ?>
                 </div>
+
                 <div class="row align-items-end">
-                                    <div class="col-2 align-items-end">
-                                        <div class="total">TOTAL ESTIME</div>
-                                    </div>
-                                    <div class="col-2 align-items-end">
-                                        <div class="totaleuro"></div>
-                                    </div>
-                                </div>
+                    <div class="col-2 align-items-end">
+                        <div class="total">TOTAL ESTIME</div>
+                    </div>
+                    <div class="col-2 align-items-end">
+                        <div class="totaleuro"></div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-3">
                         <div class="taxe">
@@ -120,6 +124,14 @@ session_start();
                         <button type="submit" class="payement">PROCEDER AU PAIEMENT</button>
                     </div>
                 </div>
+                <?php } else { ?>
+                    <!-- Cart is empty -->
+                    <div class="row justify-content-evenly">
+                        <div class="col-12">
+                            <div class="title">Votre panier est vide</div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         <?php } ?>
     </div>

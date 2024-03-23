@@ -47,6 +47,9 @@ if (isset($_GET["brand"])) {
                 ?>
                         <div class="col-lg-3 col-md-6">
                             <div class="product-card">
+                            <form class="addToCartForm" action="../pages/cartform.php" method="POST">
+                                        <input type="hidden" name="action" value="addToCart">
+                                        <input type="hidden" name="productId" value="<?php echo $row["IDPROD"]; ?>">
                             <a class="linkdisplay" href="../pages/productdisplay.php?product_id=<?php echo $row["IDPROD"]; ?>">
                                 <div class="image">
                                     <img src="<?php echo $row["URLIMAGE"]; ?>" alt="">
@@ -54,8 +57,9 @@ if (isset($_GET["brand"])) {
                                 <div class="name"><?php echo $row["NOMPROD"]; ?></div>
                                 <div class="brand"><?php echo $row["NOMMARQ"]; ?></div>
                                 <div class="price"><?php echo $row["PRIXPROD"]; ?>&euro;</div>
-                                <button class="discover">AJOUTER AU PANIER</button>
+                                <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
                             </a>
+                            </form>
                             </div>
                         </div>
                 <?php
@@ -69,9 +73,13 @@ if (isset($_GET["brand"])) {
             </div>
         </div>
         <footer><?php include("../pages/footer.php");?></footer>
+
     </body>
 
     </html>
 <?php } else {
     echo "<p>Paramètre de la marque non fournie</p>";
 } ?>
+
+<script src="../js/jsproduit.js"></script>
+

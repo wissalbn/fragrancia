@@ -151,7 +151,7 @@ body {
     margin-bottom: 1.62rem;
 }
 
-.buy button {
+.discover {
     background-color: #E0B594;
     border: none;
     padding: 1rem 3rem;
@@ -169,7 +169,7 @@ body {
     box-sizing: border-box;
 }
 
-.buy button:hover {
+.discover:hover {
     background-color: #E29961;
 }
 

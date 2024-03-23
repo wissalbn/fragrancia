@@ -26,16 +26,17 @@
         <div class="row">
             <div class="container-fluid title">LES MARQUES DE A À Z</div>
         </div>
-        <div class="alpha">
+        <div class="alpha row row-cols-auto justify-content-center">
             <?php
             for ($i = 65; $i <= 90; $i++) {
                 $letter = chr($i);
             ?>
-                <div class="abc">
-                    <a href="#"><?php echo $letter; ?></a>
+                <div class="abc col-auto">
+                    <a href="#<?php echo $letter; ?>"><?php echo $letter; ?></a>
                 </div>
             <?php } ?>
         </div>
+
 
         <div class="row">
             <?php
@@ -44,14 +45,14 @@
                 $query = "SELECT * FROM marque WHERE NOMMARQ LIKE '$alphabet%'";
                 $result = mysqli_query($bdd, $query);
             ?>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div id="<?php echo $alphabet; ?>" class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="abctitle"><?php echo $alphabet; ?></div>
                     <div class="abcbrands">
                         <ul>
                             <?php
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    $brand_url = str_replace('_',' ', $row['NOMMARQ']);
+                                    $brand_url = str_replace('_', ' ', $row['NOMMARQ']);
                                     echo "<li><a href='../pages/brandproduct.php?brand=" . urlencode($brand_url) . "'>" . $row['NOMMARQ'] . "</a></li>";
                                 }
                             } else {
@@ -60,14 +61,32 @@
                             ?>
                         </ul>
                     </div>
-
                 </div>
+
             <?php } ?>
         </div>
 
 
     </div>
     <footer><?php include('../pages/footer.php'); ?></footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const alphabetLinks = document.querySelectorAll('.alpha .abc a');
+
+        alphabetLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

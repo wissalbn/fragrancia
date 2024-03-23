@@ -145,6 +145,22 @@ header {
   display: none;
 }
 
+.cart-notification {
+  position: absolute;
+  top: 20px; 
+  right: -7px; 
+  background-color: #E0B594;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  display: none; /* Initially hidden */
+}
+
+
 @media(max-width: 900px) {
   .lv {
     font-size: 14px;

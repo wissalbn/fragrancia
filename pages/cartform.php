@@ -48,7 +48,7 @@ function addToCart($productId, $quantity)
     global $bdd;
     $idClient = $_SESSION['userId'];
 
-    $existingProduct = getProductFromCart($productId,$idClient ,$bdd);
+    $existingProduct = getProductFromCart($productId, $idClient, $bdd);
 
     if ($existingProduct) {
         $existingQuantity = $existingProduct['QUANTITE'];
@@ -74,12 +74,32 @@ function addToCart($productId, $quantity)
         $cartRow = $cartResult->fetch_assoc();
         $cartId = $cartRow['IDPANIER'];
 
-        $insertQuery = "INSERT INTO panier (IDPANIER, IDPROD, QUANTITE) VALUES (?, ?, ?)";
+        // Fetch product details to calculate subtotal
+        $productQuery = "SELECT PRIXPROD FROM produit WHERE IDPROD = ?";
+        $productStmt = $bdd->prepare($productQuery);
+        $productStmt->bind_param('i', $productId);
+        $productStmt->execute();
+        $productResult = $productStmt->get_result();
+
+        if ($productResult->num_rows == 0) {
+            echo "Product not found.";
+            return;
+        }
+
+        $productRow = $productResult->fetch_assoc();
+        $productPrice = $productRow['PRIXPROD'];
+        $subtotal = $quantity * $productPrice;
+
+        // Insert the product into the cart with the subtotal
+        $insertQuery = "INSERT INTO panier (IDPANIER, IDPROD, QUANTITE, TOTAL) VALUES (?, ?, ?, ?)";
         $insertStmt = $bdd->prepare($insertQuery);
-        $insertStmt->bind_param('iii', $cartId, $productId, $quantity);
+        $insertStmt->bind_param('iiid', $cartId, $productId, $quantity, $subtotal);
 
         if ($insertStmt->execute()) {
-            echo "Product added to cart";
+            echo "<script>window.history.go(-1);
+            window.location.reload();
+            </script>";
+            exit();
         } else {
             echo "Error adding product to cart: " . $bdd->error;
         }
@@ -88,6 +108,7 @@ function addToCart($productId, $quantity)
         $cartStmt->close();
     }
 }
+
 
 function updateQuantity($productId, $increment)
 {
@@ -141,7 +162,10 @@ function updateQuantity($productId, $increment)
     $stmt->bind_param('iii', $newQuantity, $cartId, $productId);
 
     if ($stmt->execute()) {
-        echo "Quantity updated successfully";
+        echo "<script>window.history.go(-1);
+        window.location.reload();
+        </script>";
+        exit();
     } else {
         echo "Error updating quantity: " . $bdd->error;
     }

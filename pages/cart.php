@@ -132,7 +132,7 @@ session_start();
                     </div>
                     <div class="row totalrow justify-content-center justify-content-md-end">
                         <div class="col-auto">
-                            <button type="submit" class="payement">PROCEDER AU PAIEMENT</button>
+                            <button type="submit" class="payement" onclick="window.location.href = '../pages/validorder.php';">PROCEDER AU PAIEMENT</button>
                         </div>
                     </div>
 

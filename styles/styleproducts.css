@@ -239,6 +239,10 @@ input[type="checkbox"] {
     background: #E29961;
 }
 
+.discover:active{
+    background: #E29961;
+}
+
 .search {
     border: 0;
     background-color: rgba(255, 255, 255, 0.5);

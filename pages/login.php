@@ -13,6 +13,9 @@ if (isset($_POST['connexion'])) {
         if ($user != false) {
             if (password_verify($mdpclient, $user['MDPCLIENT'])) {
 
+                $_SESSION['emailclient'] = $emailclient;
+                header('Location: bienvenueCli.php');
+
                 $_SESSION['userId'] = $user['IDCLIENT'];
                 header('Location: bienvenueCli.php');
 

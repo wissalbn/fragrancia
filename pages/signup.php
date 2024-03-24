@@ -1,3 +1,25 @@
+<?php
+// Check for error message in URL parameter
+if (isset($_GET['error'])) {
+    $errorMsg = "";
+    switch ($_GET['error']) {
+        case "email_exists":
+            $errorMsg = "L'adresse email est déjà utilisée. Veuillez vous connecter.";
+            break;
+        case "cart_creation_failed":
+            $errorMsg = "Erreur lors de la création du panier.";
+            break;
+        case "registration_failed":
+            $errorMsg = "Erreur lors de l'inscription.";
+            break;
+        default:
+            // Handle other error cases
+            break;
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,6 +44,15 @@
                 <div class="title">BIENVENUE ENTRE NOUS</div>
                 <div class="subtitle">Vous avez déjà un compte? <a href="../pages/login.php">Se connecter</a></div>
                 <form action="signupform.php" method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <?php if (!empty($errorMsg)) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $errorMsg; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <select name="civilite" id="civilite" class="form-select">

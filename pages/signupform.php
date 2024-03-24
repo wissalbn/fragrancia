@@ -22,9 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $checkEmailQuery->get_result();
 
     if ($result->num_rows > 0) {
-        header("Location: ../pages/login.php");
+        // Email already exists, redirect with error message
+        header("Location: ../pages/signup.php?error=email_exists");
         exit();
     } else {
+        // Email doesn't exist, proceed with user registration
         $stmt = $bdd->prepare("INSERT INTO utilisateur (CIVILITECLIENT, NOMCLIENT, EMAILCLIENT, MDPCLIENT, TELCLIENT, VILLECLIENT, ADRESSECLIENT) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $civilite, $nom, $email, $hashedMotdepasse, $telephone, $ville, $adresse);
 
@@ -34,13 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $createCartQuery = $bdd->prepare("INSERT INTO client_cart (IDCLIENT) VALUES (?)");
             $createCartQuery->bind_param("i", $userId);
             if ($createCartQuery->execute() === TRUE) {
+                // Registration successful, redirect to login page
                 header("Location: ../pages/login.php");
                 exit();
             } else {
-                echo "Error creating cart: " . $bdd->error;
+                header("Location: ../pages/signup.php?error=cart_creation_failed");
+                exit();
             }
         } else {
-            echo "Error: " . $stmt->error;
+            header("Location: ../pages/signup.php?error=registration_failed");
+            exit();
         }
 
         $stmt->close();
@@ -48,3 +53,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $bdd->close();
     }
 }
+?>

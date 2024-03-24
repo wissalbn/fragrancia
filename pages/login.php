@@ -76,7 +76,7 @@ if (isset($_POST['connexion'])) {
                         <div class="col-md-12">
                             <?php
                             if (isset($_SESSION['error_message'])) {
-                                echo '<span class="error-message">' . $_SESSION['error_message'] . '</span>';
+                                echo '<div class="alert alert-danger error-message" role="alert">' . $_SESSION['error_message'] . '</div>';
                                 unset($_SESSION['error_message']);
                             }
                             ?>

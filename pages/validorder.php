@@ -74,7 +74,7 @@
                 <div class="shipping">Livraison: <?php echo $shippingPrice; ?>&euro;</div>
                 <div class="tax">Taxe (<?php echo ($taxRate * 100); ?>%): <?php echo $taxAmount; ?>&euro;</div>
                 <div class="order-total">
-                    Total: <?php echo $totalPrice; ?>&euro;
+                    Total à payer TTC: <?php echo $totalPrice; ?>&euro;
                 </div>
                 <form id="order-form" action="../php/processorder.php" method="POST">
                     <button type="submit" class="btn btn-primary submit-button">Valider la commande</button>

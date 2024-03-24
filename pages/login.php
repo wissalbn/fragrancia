@@ -17,7 +17,7 @@ if (isset($_POST['connexion'])) {
                 header('Location: bienvenueCli.php');
 
                 $_SESSION['userId'] = $user['IDCLIENT'];
-                header('Location: bienvenueCli.php');
+                header('Location: bienvenueCli.php ');
 
                 exit;
             } else {

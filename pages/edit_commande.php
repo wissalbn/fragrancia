@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Exécuter la requête SQL
         if (mysqli_query($bdd, $sql_update_commande)) {
             // Rediriger vers une page de succès ou afficher un message de succès
-            header("Location: adminPanel.php#commande");
+            header("Location: commande.php");
             exit;
         } else {
             echo "Erreur lors de la mise à jour de la commande: " . mysqli_error($bdd);
@@ -42,9 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Tous les champs requis doivent être remplis.";
     }
-} else {
-    echo "Méthode de requête incorrecte.";
-}
+} 
 ?>
 
         <!DOCTYPE html>
@@ -54,8 +52,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Éditer Commande</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                .btn-primary {
+                      background-color: rgba(224, 181, 148, 1);;
+        
+                       border:none !important;
+                    }
+                       .btn-primary:hover {
+                      background-color: #3b3a39;
+            
+                       }
+                       .btn-primary:active{
+                        background-color: #3b3a39;
+                       }
+                form{
+                      width:50%;
+
+                     }
+                     
+            </style>
         </head>
         <body>
+            
             <div class="container">
                 <h1>Éditer Commande</h1> 
                 <form action="" method="post">
@@ -72,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="date_commande">Date de commande:</label>
                         <input type="date" class="form-control" id="date_commande" name="date_commande" value="<?php echo date('d/m/Y', strtotime($row_commande['DATECOMMANDE'])); ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button> <a href="commande.php" class="retour"  style="color: red;  margin-left: 5px;"><-retour</a>
                 </form>
             </div>
         </body>

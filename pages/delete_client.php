@@ -10,7 +10,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     mysqli_query($bdd, $sql_delete_client);
 
     // Rediriger vers une page de succès ou afficher un message de succès
-    header("Location: adminPanel.php#client");
+    header("Location: client.php");
     exit;
 } else {
     echo "ID de client non spécifié.";

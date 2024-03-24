@@ -46,8 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Tous les champs requis doivent être remplis.";
     }
-} else {
-    echo "Méthode de requête incorrecte.";
 }
 ?>
 
@@ -58,6 +56,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Éditer Produit</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                .btn-primary {
+                      background-color: rgba(224, 181, 148, 1);;
+        
+                       border:none !important;
+                    }
+                       .btn-primary:hover {
+                      background-color: #3b3a39;
+            
+                       }
+                form{
+                      width:50%;
+
+                     }
+
+            </style>
         </head>
         <body>
             <div class="container">
@@ -96,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="stock">Stock:</label>
                         <input type="text" class="form-control" id="stock" name="stock" value="<?php echo $row_produit['STOCK']; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button> <a href="commande.php" class="retour"  style="color: red;  margin-left: 5px;"><-retour</a>
                 </form>
             </div>
         </body>

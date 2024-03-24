@@ -12,24 +12,34 @@ if (isset($_POST['connexion'])) {
 
         if ($user != false) {
             if (password_verify($mdpclient, $user['MDPCLIENT'])) {
+                $id_client = $user['IDCLIENT'];
+                $recupPrivilege = $bdd->prepare('SELECT IDPRIVILEGE FROM utilisateur_privilege WHERE IDCLIENT = ?');
+                $recupPrivilege->execute(array($id_client));
+                $privilege = $recupPrivilege->fetch();
 
-                $_SESSION['emailclient'] = $emailclient;
-                header('Location: bienvenueCli.php');
-
-                $_SESSION['userId'] = $user['IDCLIENT'];
-                header('Location: bienvenueCli.php ');
-
-                exit;
-            } else {
+                if  ($privilege && $privilege['IDPRIVILEGE'] == 1) {
+                    // C'est un administrateur
+                    $_SESSION['emailclient'] = $emailclient;
+                    $_SESSION['userId'] = $id_client;
+                    header('Location: produit.php');
+                    exit;
+                }
+                     else {// C'est un client
+                    $_SESSION['emailclient'] = $emailclient;
+                    $_SESSION['userId'] = $id_client;
+                    header('Location: bienvenueCli.php');
+                    exit;
+                }
+                
+             } else {
                 $_SESSION['error_message'] = "*Email ou mot de passe incorrect !";
-            }
-        } else {
+            } 
+        }else {
             $_SESSION['error_message'] = "*Utilisateur non trouvé !";
-        }
-    } else {
+    } 
+    }else {
         $_SESSION['error_message'] = "*Veuillez compléter tous les champs...";
-    }
-}
+}}
 ?>
 
 <!DOCTYPE html>

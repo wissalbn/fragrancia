@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Exécuter la requête SQL
         if (mysqli_query($bdd, $sql_insert_commande)) {
             // Rediriger vers une page de succès ou afficher un message de succès
-            header("Location: adminPanel.php#commande");
+            header("Location: commande.php");
             exit;
         } else {
             echo "Erreur lors de l'ajout de la commande: " . mysqli_error($bdd);

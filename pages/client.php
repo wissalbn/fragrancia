@@ -32,35 +32,31 @@
             <form id="add-client-form" action="add_client.php" method="post">
                 <!-- Vos champs de formulaire pour ajouter un client -->
                 <div class="form-group">
-                <label for="nom">Nom:</label>
-                <input type="text" class="form-control" id="nom" name="nom" required>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
             </div>
             <div class="form-group">
-                <label for="civilite">Civilité:</label>
-                <select class="form-control" id="civilite" name="civilite" required>
+                <select class="form-control" id="civilite" name="civilite" placeholder="Civilité" required>
                     <option value="Monsieur">Monsieur</option>
                     <option value="Madame">Madame</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
             </div>
             <div class="form-group">
-                <label for="telephone">Téléphone:</label>
-                <input type="text" class="form-control" id="telephone" name="telephone" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <label for="pays">Pays:</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required>
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control" id="pays" name="pays"  value="MAROC" readOnly required>
             </div>
             <div class="form-group">
-                <label for="ville">Ville:</label>
-                <input type="text" class="form-control" id="ville" name="ville" required>
+                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required>
             </div>
             <div class="form-group">
-                <label for="adresse">Adresse:</label>
-                <textarea class="form-control" id="adresse" name="adresse" rows="3" required></textarea>
+                <textarea class="form-control" id="adresse" name="adresse" rows="3" placeholder="Adresse" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Ajouter</button>
             </form>

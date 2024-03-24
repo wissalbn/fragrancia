@@ -59,12 +59,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="brand"> <a href="#"><?= $product['NOMMARQ']; ?></a> </div>
-                <div class="name"><?= $product['NOMPROD']; ?></div>
-                <div class="type"><?= $product['TYPEPROD']; ?></div>
-                <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
-                <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
-                <div class="buy"><button class="buy">AJOUTER AU PANIER</button></div>
+                <form class="addToCartForm" action="../pages/cartform.php" method="POST">
+                    <input type="hidden" name="action" value="addToCart">
+                    <input type="hidden" name="productId" value="<?=$product_id ?>">
+                    <div class="brand"> <a href="#"><?= $product['NOMMARQ']; ?></a> </div>
+                    <div class="name"><?= $product['NOMPROD']; ?></div>
+                    <div class="type"><?= $product['TYPEPROD']; ?></div>
+                    <div class="container-fluid desc"><?= $product['DESCPROD']; ?></div>
+                    <div class="price"><?= $product['PRIXPROD']; ?> &euro;</div>
+                    <button class="discover" data-product-id="<?php echo $row["IDPROD"]; ?>">AJOUTER AU PANIER</button>
+                </form>
             </div>
 
 
@@ -84,6 +88,8 @@
         </div>
     </div>
     <footer><?php include("../pages/footer.php") ?></footer>
+    <script src="../js/jsproduit.js"></script>
+
 
 </body>
 

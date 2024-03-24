@@ -1,30 +1,356 @@
 @import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.wrapper{
-    height: 50px;
-    min-width: 80px;
-    background-color: antiquewhite;
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 5px auto;
+}
+
+
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.contenaire1 {
+    height: 50vh;
+}
+
+.contenaire1 .col-12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titlerow {
+    margin: 3% 5%;
+}
+
+.backlink {
+    color: #2b2b2b;
+    text-align: right;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+    text-decoration-line: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.backlink:active {
+    color: #3b3b3b;
+}
+
+.subtitle {
+    margin: 0 5%;
+    display: flex;
+}
+
+.subtitles {
+    color: #DAC1BB;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+}
+
+.title {
+    margin: 2% 0;
+    color: #2b2b2b;
+
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    letter-spacing: 0.125rem;
+    text-align: center;
+}
+
+.titlevide {
+    margin: 5% 0;
+    color: #2b2b2b;
+
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    letter-spacing: 0.125rem;
+    text-align: center;
+}
+
+.connect {
+    background-color: #E0B594;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.05731rem */
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.connect:hover {
+    background-color: #e4ccba;
+}
+
+.connect:active {
+    background-color: #e4ccba;
+}
+
+#cart-items {
+    background: var(--hihi, rgba(218, 193, 187, 0.49));
+    border-bottom: #E0B594 1px solid;
+
+}
+
+.cart-item .col-md-6,
+.cart-item .col-md-3 {
+    margin: 1% 0;
+}
+
+
+.cart-item img {
+    width: 5.98606rem;
+    height: auto;
+
+}
+
+.nomprod {
+    color: #000;
+
+    /* text */
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem
+}
+
+.price {
+    color: #000;
+    /* text */
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+}
+
+
+
+
+
+.wrapper {
+    height: 2.5rem;
+    background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 10px #2b2b2b;
+    justify-content: space-evenly;
+    border: 1px solid black;
 }
-.wrapper span{
-    width: 100%;
+
+.wrapper span {
+    color: #000;
+
     text-align: center;
-    font-size: 16px;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+    cursor: pointer;
+}
+
+.wrapper span.num {
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.subtotal {
+    color: #000;
+    margin-right: 20%;
+    text-align: end;
+    font-family: 'Halant', serif;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+}
+
+.cart-item .immg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.cart-item .supress i {
+    width: 1.5rem;
+    height: auto;
     cursor: pointer;
 
 }
-.wrapper span.num{
-    font-size: 15px;
-    border-right: 2px solid #2b2b2b;
-    border-left: 2px solid #2b2b2b;
-    pointer-events: none;
+
+.totalrow {
+    margin-right: 5%;
+    margin-top: 1%;
+
+}
+
+
+
+.total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #2b2b2b;
+    text-align: right;
+    font-family: 'Halant', serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.totaleuro {
+    color: #2b2b2b;
+    font-family: 'Halant', serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120.833%;
+    letter-spacing: 0.06rem;
+    margin-left: 20px;
+}
+
+.taxe {
+    color: #616161;
+    text-align: right;
+    width: 22rem;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.payement {
+    background-color: #E0B594;
+    border: none;
+    padding: 0.7rem 4rem;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 1.05731rem */
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
+    margin-bottom: 5%;
+}
+
+.payement:hover {
+    background: #E29961;
+}
+
+.payement:active {
+    background: #E29961;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.totalrow {
+    align-items: center;
+}
+
+.mb-2{
+    padding-left: 20px;
+}
+
+@media(max-width:768px){
+    .cart-item .col-md-6 {
+        flex-direction: column;
+    }
+    
+    .cart-item .col-md-6 .row {
+        flex-direction: column;
+    }
+    
+    .cart-item .col-md-6 .subtotal {
+        margin-top: 10px;
+    }
+    .subtitle .col-3,
+    .col-3 .subtitles {
+        display: none;
+    }
+
+    .subtotal{
+        display: none;
+    }
+
+    .subtitle{
+        justify-content: center;
+    }
+
+    .nomprod,
+    .price{
+        text-align: center;
+    }
+    .col-7{
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        padding-right: 20px;
+        margin-bottom: 0;
+    }
+    .col-5{
+        display: flex;
+        justify-content: end;
+    }
+    .wrapper{
+        width: 10rem;
+    }
+    .totalrow {
+        justify-content: center;
+    }
+
+
 }

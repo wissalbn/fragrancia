@@ -1,3 +1,6 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +10,8 @@
     <title>header</title>
     <link rel="stylesheet" href="../styles/styleheader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -26,8 +31,19 @@
                 <li><a href="../pages/brands.php">MARQUES</a></li>
             </ul>
             <div class="icon">
-                <a href="../pages/signup.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
+                <?php
+                    if (isset($_SESSION['userId'])) {
+                    $redirectUrl = "../pages/bienvenuecli.php";
+                } else {
+                    $redirectUrl = "../pages/signup.php";
+                }
+                ?>
+
+                <a href="<?php echo $redirectUrl; ?>" class="action-btn">
+                    <img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte">
+                </a>
                 <a href="../pages/cart.php" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
+                <span class="cart-notification">1</span>
             </div>
 
             <div class="toggle-btn">
@@ -51,25 +67,7 @@
         </div>
 
     </header>
-    <script>
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const toggleBtnIcon = document.querySelector('.toggle-btn i');
-        const dropdownmenu = document.querySelector('.dropdown-menu');
-        const logo = document.querySelector('.logo');
-
-        toggleBtn.onclick = function() {
-            dropdownmenu.classList.toggle('open');
-            const isOpen = dropdownmenu.classList.contains('open');
-            logo.classList.toggle('hidden', isOpen);
-        };
-
-        const closeBtn = document.querySelector('.close-btn');
-        closeBtn.addEventListener('click', function() {
-            dropdownmenu.classList.remove('open');
-            toggleBtnIcon.classList = 'fa-solid fa-bars';
-            logo.classList.remove('hidden');
-        });
-    </script>
+    <script src="../js/jsheader.js"></script>
 </body>
 
 </html>

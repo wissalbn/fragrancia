@@ -1,7 +1,7 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=parfumerie;charset=utf8;', 'root', '');
-$error_message="";
+$error_message = "";
 if (isset($_POST['connexion'])) {
     if (!empty($_POST['emailclient']) && !empty($_POST['mdpclient'])) {
         $emailclient = htmlspecialchars($_POST['emailclient']);
@@ -27,9 +27,8 @@ if (isset($_POST['connexion'])) {
             $_SESSION['error_message'] = "*Utilisateur non trouvé !";
         }
     } else {
-        $_SESSION['error_message']= "*Veuillez compléter tous les champs...";
+        $_SESSION['error_message'] = "*Veuillez compléter tous les champs...";
     }
-
 }
 ?>
 
@@ -40,62 +39,82 @@ if (isset($_POST['connexion'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>se connecter - Parfumerie</title>
-    <link rel="stylesheet" href="../styles/styleconnecter.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/stylesignup.css">
+    <link rel="stylesheet" href="../styles/styleconnecter.css">
+
+
 
 </head>
 
 <body>
-    <div class="main">
+    <div class="header">
         <?php include("../pages/header.php"); ?>
-        <div class="all row mt-1 main2">
-            <div class="row">
-                <div class="col-md-6 col-img mt-0">
-                    <div>
-                        <img src="../images/inscrire_connect.png" class="img-fluid">
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-lg-6 d-lg-block d-none image">
+                <img src="../images/inscrire_connect.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-6 col-md-12 form">
+                <div class="title">BON RETOUR!</div>
+                <div class="subtitle">Vous n'avez pas un compte? <a href="../pages/signup.php">S'inscrire</a></div>
+                <form action="login.php" method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <?php
+                            if (isset($_SESSION['error_message'])) {
+                                echo '<span class="error-message">' . $_SESSION['error_message'] . '</span>';
+                                unset($_SESSION['error_message']);
+                            }
+                            ?>
+                            <input type="email" name="emailclient" autocomplete="email" class="form-control" placeholder="EMAIL*">
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col">
-                    <div class="c1">
-                        <h1>BON RETOUR!</h1>
-                        <span> Vous n’avez pas un compte? </span> <a href="signup.php" class="inscrit">s'inscrire</a>
-                        <form method="POST" action="login.php">
-                            <div class="formulaire">
-                                <input type="text" name="emailclient" placeholder="EMAIL" autocomplete="off"><br>
-                                <div style="position: relative;">
-                                    <input type="password" name="mdpclient" placeholder="MOT DE PASSE*" autocomplete="off" id="password-input">
-                                    <span class="password-toggle" id="password-toggle">&#x1f441;</span>
-                                </div><br>
-                                <button type="submit" name="connexion" class="btnc">CONNEXION</button>
+                    <div class="row mb-3">
+                        <div class="col-md-12 input-group">
+                            <input id="password" type="password" autocomplete="current-password" name="mdpclient" class="form-control" placeholder="MOT DE PASSE*">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="bi bi-eye-slash"></i>
+                                </span>
                             </div>
-                        </form>
-                        <?php
-                        
-                        if (isset($_SESSION['error_message'])) {
-                            echo '<span class="error-message">' . $_SESSION['error_message'] . '</span>';
-                            unset($_SESSION['error_message']);
-                        }
-
-                        ?>
+                        </div>
                     </div>
-
-                </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <button type="submit" name="connexion" class="btn btn-primary">CONNEXION</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <footer>
-            <?php include("../pages/footer.php"); ?>
-        </footer>
-        <script>
-            document.getElementById("password-toggle").addEventListener("click", function() {
-                var passwordInput = document.getElementById("password-input");
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.querySelector('.input-group-text');
+
+            togglePassword.addEventListener('click', function() {
+                const passwordField = document.getElementById('password');
+
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    this.innerHTML = '<i class="bi bi-eye"></i>';
                 } else {
-                    passwordInput.type = "password";
+                    passwordField.type = 'password';
+                    this.innerHTML = '<i class="bi bi-eye-slash"></i>';
                 }
             });
-        </script>
+        });
+    </script>
+
+
+
+
+
+    <footer><?php include("../pages/footer.php"); ?></footer>
 </body>
 
 </html>

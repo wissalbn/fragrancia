@@ -1,3 +1,4 @@
+
 <?php
 // Inclure le fichier de connexion à la base de données
 include("connection.php");

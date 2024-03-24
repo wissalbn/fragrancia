@@ -21,12 +21,14 @@ if (isset($_POST['connexion'])) {
                     // C'est un administrateur
                     $_SESSION['emailclient'] = $emailclient;
                     $_SESSION['userId'] = $id_client;
+                    $_SESSION['admin'] = true;
                     header('Location: produit.php');
                     exit;
                 }
                      else {// C'est un client
                     $_SESSION['emailclient'] = $emailclient;
                     $_SESSION['userId'] = $id_client;
+                    $_SESSION['admin'] = false;
                     header('Location: bienvenueCli.php');
                     exit;
                 }

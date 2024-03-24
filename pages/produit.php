@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Vérifier si la session admin n'est pas définie ou n'est pas true
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+    // Rediriger l'utilisateur vers une autre page
+    header('Location: index.php');
+    exit; // Arrêter l'exécution du script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +18,16 @@
 </head>
 <body>
 <div class="main-content">
-<div class="sidebar">
-            <?php include("adminPanel.php"); ?>
+    <div class="sidebar">
+        <?php include("adminPanel.php"); ?>
+    </div>
 </div>
 <div class="main-content">  
-         <!-- Bouton pour ouvrir la fenêtre modale -->
-<button id="modal-btn" class="btn btn-primary">Ajouter un produit </button>
-   <?php include("p.php");
-    ?>
+    <!-- Bouton pour ouvrir la fenêtre modale -->
+    <button id="modal-btn" class="btn btn-primary">Ajouter un produit</button>
+    <?php include("p.php"); ?>
 </div>
-</div>
+
 
 
     <!-- Fenêtre modale d'ajout de client -->

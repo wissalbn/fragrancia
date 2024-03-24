@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Vérifier si la session admin n'est pas définie ou n'est pas true
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+    // Rediriger l'utilisateur vers une autre page
+    header('Location: index.php');
+    exit; // Arrêter l'exécution du script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +78,7 @@ const addCommandeBtn = document.getElementById('modal-btn');
 
 // Écoutez les clics sur le bouton d'ajout de commande pour ouvrir la fenêtre modale
 addCommandeBtn.addEventListener('click', openModal);
- 
+
 
     </script>
 </body>

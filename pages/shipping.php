@@ -37,7 +37,7 @@
     <div class="main">
         <h1>Livraison</h1>
         <p>L’équipe de votre parfumerie en ligne Frangrancia met en œuvre toutes ses ressources pour vous assurer une livraison de qualité tout en respectant les délais. La satisfaction de nos clients est notre principale préoccupation. Dès la réception de votre commande, elle est préparée soigneusement puis confiée à nos partenaires.</p>
-        <p>La livraison est assurée par nos partenaires sous un délai de 2 à 4 jours ouvrés partout au Maroc. De plus, les frais de livraison sont offerts pour toutes commandes supérieures à 50£.</p>
+        <p>La livraison est assurée par nos partenaires sous un délai de 2 à 4 jours ouvrés partout au Maroc. De plus, les frais de livraison sont offerts pour toutes commandes supérieures à 50&euro;.</p>
     </div>
     <footer>
         <?php include("../pages/footer.php") ?>

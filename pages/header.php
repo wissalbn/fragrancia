@@ -1,3 +1,6 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +31,17 @@
                 <li><a href="../pages/brands.php">MARQUES</a></li>
             </ul>
             <div class="icon">
-                <a href="../pages/signup.php" class="action-btn"><img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte"></a>
+                <?php
+                    if (isset($_SESSION['userId'])) {
+                    $redirectUrl = "../pages/bienvenuecli.php";
+                } else {
+                    $redirectUrl = "../pages/signup.php";
+                }
+                ?>
+
+                <a href="<?php echo $redirectUrl; ?>" class="action-btn">
+                    <img class="icons" src="../images/icones/utilisateur (1).png" alt="LOGIN" title="Mon compte">
+                </a>
                 <a href="../pages/cart.php" class="action-btn"><img class="icons" src="../images/icones/panier (1).png" alt="panier" title="Panier"></a>
                 <span class="cart-notification">1</span>
             </div>

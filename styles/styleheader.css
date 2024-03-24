@@ -78,6 +78,7 @@ header {
 
 .icon {
   display: flex;
+  position: relative;
   gap: 29px;
 }
 
@@ -147,8 +148,8 @@ header {
 
 .cart-notification {
   position: absolute;
-  top: 20px; 
-  right: -7px; 
+  top: -7px; 
+  right: -12px; 
   background-color: #E0B594;
   color: white;
   width: 20px;

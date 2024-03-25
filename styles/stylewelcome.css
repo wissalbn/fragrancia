@@ -104,16 +104,18 @@ h1{
 }
 
 .civilite,
-.email{
+.email,
+.order{
     color: #2b2b2b;
     font-family: "Halant", serif;
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 120.833%;
-    letter-spacing: 0.055rem;
+    /* letter-spacing: 0.055rem; */
+    height: fit-content;
 
 }
+
 
 .civilite{
     text-transform: uppercase;

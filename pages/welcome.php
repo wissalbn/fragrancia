@@ -55,7 +55,7 @@ if (isset($_SESSION['userId'])) {
                     <div class="card-header">
                         Historique des commandes
                     </div>
-                    <div class="card-body">
+                    <div class="card-body order">
                         <div class="table-responsive">
                             <?php
                             require_once('connection.php');

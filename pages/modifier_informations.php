@@ -12,10 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_update_client = "UPDATE utilisateur SET EMAILCLIENT = '$email', TELCLIENT = '$tel', VILLECLIENT = '$ville', ADRESSECLIENT = '$adresse' WHERE IDCLIENT = $id_client";
 
     if (mysqli_query($bdd, $sql_update_client)) {
-        echo('<script>alert("Vos informations ont bien été modifié!")');
-        header("Location: ../pages/welcome.php");
-        exit;
-    } else {
+        echo('<script>alert("Vos informations ont bien été modifié!");');
+        echo('window.location.href = "../pages/welcome.php";</script>');
+    }else {
         echo "Erreur lors de la mise à jour des informations: " . mysqli_error($bdd);
     }
 } else {

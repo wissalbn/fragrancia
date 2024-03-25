@@ -1,3 +1,14 @@
+<?php require_once('connection.php'); // Include your database connection file
+session_start(); // Start the session if not already started
+
+if (!isset($_SESSION['userId'])) {
+    // Redirect the user to the login page if not logged in
+    header("Location: ../pages/login.php");
+    exit(); // Stop further execution
+}
+
+$userID = $_SESSION['userId']; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,36 +41,49 @@
 
         <div class="order-summary">
             <?php
-            require_once('connection.php'); // Include your database connection file
+            require_once('connection.php');
 
-            // Fetch order details from the "panier" table
-            $query = "SELECT produit.*, panier.QUANTITE FROM panier 
-                  INNER JOIN produit ON panier.IDPROD = produit.IDPROD";
-            $result = mysqli_query($bdd, $query);
+            $cartQuery = "SELECT IDPANIER FROM client_cart WHERE IDCLIENT = ?";
+            $stmt = $bdd->prepare($cartQuery);
+            $stmt->bind_param("i", $userID);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-            if (mysqli_num_rows($result) > 0) {
-                $totalPrice = 0;
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $itemName = $row['NOMPROD'];
-                    $itemImage = $row['URLIMAGE'];
-                    $itemPrice = $row['PRIXPROD'];
-                    $quantity = $row['QUANTITE'];
+            if ($result->num_rows > 0) {
+                $cartRow = $result->fetch_assoc();
+                $cartID = $cartRow['IDPANIER'];
 
-                    $subtotal = $itemPrice * $quantity;
-                    $totalPrice += $subtotal;
-            ?>
-                    <div class="order-item">
-                        <img src="<?php echo $itemImage; ?>" alt="<?php echo $itemName; ?>" class="item-image">
-                        <div class="quantity-bubble"><?php echo $quantity; ?></div>
-                        <div class="item-details">
-                            <div class="name"><?php echo $itemName; ?></div>
-                            <div class="price"><?php echo $itemPrice; ?>&euro;</div>
+                $query = "SELECT produit.*, panier.QUANTITE FROM panier 
+              INNER JOIN produit ON panier.IDPROD = produit.IDPROD
+              WHERE panier.IDPANIER = ?";
+                $stmt = $bdd->prepare($query);
+                $stmt->bind_param("i", $cartID);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    $totalPrice = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        $itemName = $row['NOMPROD'];
+                        $itemImage = $row['URLIMAGE'];
+                        $itemPrice = $row['PRIXPROD'];
+                        $quantity = $row['QUANTITE'];
+
+                        $subtotal = $itemPrice * $quantity;
+                        $totalPrice += $subtotal; ?>
+                        <div class="order-item">
+                            <img src="<?php echo $itemImage; ?>" alt="<?php echo $itemName; ?>" class="item-image">
+                            <div class="quantity-bubble"><?php echo $quantity; ?></div>
+                            <div class="item-details">
+                                <div class="name"><?php echo $itemName; ?></div>
+                                <div class="price"><?php echo $itemPrice; ?>&euro;</div>
+                            </div>
+                            <div>
+                                <div class="subtotal">Sous-total: <?php echo $subtotal; ?>&euro;</div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="subtotal">Sous-total: <?php echo $subtotal; ?>&euro;</div>
-                        </div>
-                    </div>
             <?php
+                    }
                 }
             }
 

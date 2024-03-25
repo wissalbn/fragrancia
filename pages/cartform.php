@@ -41,7 +41,9 @@ function getProductFromCart($productId, $userId, $bdd)
 function addToCart($productId, $quantity)
 {
     if (!isset($_SESSION['userId'])) {
-        echo "User is not logged in";
+        echo '<script>alert("Vous devez se connecter !");
+        window.history.go(-1);
+        </script>';
         return;
     }
 
@@ -113,7 +115,9 @@ function addToCart($productId, $quantity)
 function updateQuantity($productId, $increment)
 {
     if (!isset($_SESSION['userId'])) {
-        echo "User is not logged in";
+        echo '<script>alert("Vous devez se connecter !");
+        window.history.go(-1);
+        </script>';
         return;
     }
 

@@ -29,12 +29,12 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['emailclient'] = $emailclient;
                     $_SESSION['userId'] = $id_client;
                     $_SESSION['admin'] = false;
-                    header('Location: bienvenueCli.php');
+                    header('Location: welcome.php');
                     exit;
                 }
                 
              } else {
-                $_SESSION['error_message'] = "*Email ou mot de passe incorrect !";
+                $_SESSION['error_message'] = "*Mot de passe incorrect !";
             } 
         }else {
             $_SESSION['error_message'] = "*Utilisateur non trouvé !";

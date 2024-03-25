@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Judson:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 10px auto;
+}
+
+.header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.backlink {
+    margin-left: 5%;
+}
+
+.backlink a {
+    text-decoration: none;
+    color: #2B2B2B;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.backlink a:hover {
+    text-decoration: underline;
+}
+
+h1{
+    color: #2B2B2B;
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    /* 3.02081rem */
+    letter-spacing: 0.125rem;
+}
+
+.container{
+    height: 80vh;
+}
+
+.logout-btn {
+    background-color: #E0B594;
+    border: none;
+    border-radius: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120.833%;
+    letter-spacing: 0.035rem;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+.logout-btn:hover {
+    background: #E29961;
+}
+
+.logout-btn:active{
+    background: #E29961;
+}
+
+.card-header{
+    color: #2B2B2B;
+    font-family: 'Halant', serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+}
+.col-md-6 a{
+    text-decoration: none;
+    color: #E0B594;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120.833%;
+    letter-spacing: 0.04rem;
+    transition: font-size 0.3s;
+}
+
+.col-md-6 a:hover {
+    font-size: 1.1rem;
+}
+
+.civilite,
+.email{
+    color: #2b2b2b;
+    font-family: "Halant", serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    letter-spacing: 0.055rem;
+
+}
+
+.civilite{
+    text-transform: uppercase;
+
+}
+
+.email{
+    margin-bottom: 15px;
+}
+
+.card{
+    border-radius: 0;
+    border-color: #E0B594;
+}

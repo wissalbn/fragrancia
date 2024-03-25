@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Exécuter la requête SQL
         if (mysqli_query($bdd, $sql_update_produit)) {
             // Rediriger vers une page de succès ou afficher un message de succès
-            header("Location: adminPanel.php#produit");
+            header("Location: produit.php");
             exit;
         } else {
             echo "Erreur lors de la mise à jour du produit: " . mysqli_error($bdd);

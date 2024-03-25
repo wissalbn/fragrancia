@@ -32,9 +32,13 @@
             </ul>
             <div class="icon">
                 <?php
-                    if (isset($_SESSION['userId'])) {
-                    $redirectUrl = "../pages/bienvenuecli.php";
+                if (isset($_SESSION['admin']) && $_SESSION['admin']) {
+                    $redirectUrl = "../pages/produit.php";
                 } else {
+                    $redirectUrl = "../pages/welcome.php";
+                }
+
+                if (!isset($_SESSION['userId'])) {
                     $redirectUrl = "../pages/signup.php";
                 }
                 ?>

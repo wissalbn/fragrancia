@@ -16,8 +16,7 @@ if ($resultat_client && mysqli_num_rows($resultat_client) > 0) {
         echo "<td><a href='delete_client.php?id=" . $row_client["IDCLIENT"] . "' class='btn btn-danger bn'>Supprimer</a></td></tr>";
       
     }
-    echo "</tbody>";
-    echo "</table>";
+    
 } else {
     echo "Aucun client trouvé.";
 }

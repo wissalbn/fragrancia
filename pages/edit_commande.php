@@ -1,4 +1,3 @@
-
 <?php
 // Inclure le fichier de connexion à la base de donnée
 include("connection.php");
@@ -30,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date_commande = date('Y-m-d', strtotime($_POST['date_commande']));
 
         // Requête SQL pour mettre à jour la commande
-        $sql_update_commande = "UPDATE commande SET IDCLIENT = '$id_client', TOTAUX = '$total', DATECOMMANDE = '$date_commande' WHERE IDCOMMANDE = $id_commande";
+        $sql_update_commande = "UPDATE commande SET  TOTAUX = '$total', DATECOMMANDE = '$date_commande' WHERE IDCOMMANDE = $id_commande";
 
         // Exécuter la requête SQL
         if (mysqli_query($bdd, $sql_update_commande)) {
             // Rediriger vers une page de succès ou afficher un message de succès
-            header("Location: commande.php");
+            header("Location: indexAdmin.php");
             exit;
         } else {
             echo "Erreur lors de la mise à jour de la commande: " . mysqli_error($bdd);
@@ -79,10 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1>Éditer Commande</h1> 
                 <form action="" method="post">
                     <input type="hidden" name="id_commande" value="<?php echo $row_commande['IDCOMMANDE']; ?>">
-                    <div class="form-group">
-                        <label for="id_client">ID Client:</label>
-                        <input type="text" class="form-control" id="id_client" name="id_client" value="<?php echo $row_commande['IDCLIENT']; ?>">
-                    </div>
+
                     <div class="form-group">
                         <label for="total">Total:</label>
                         <input type="text" class="form-control" id="total" name="total" value="<?php echo $row_commande['TOTAUX']; ?>">
@@ -91,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="date_commande">Date de commande:</label>
                         <input type="date" class="form-control" id="date_commande" name="date_commande" value="<?php echo date('d/m/Y', strtotime($row_commande['DATECOMMANDE'])); ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Enregistrer</button> <a href="commande.php" class="retour"  style="color: red;  margin-left: 5px;"><-retour</a>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button> <a href="indexAdmin.php" class="retour"  style="color: red;  margin-left: 5px;"><-retour</a>
                 </form>
             </div>
         </body>

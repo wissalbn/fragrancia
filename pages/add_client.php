@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Exécuter la requête SQL
     if (mysqli_query($bdd, $sql_insert_client)) {
         // Rediriger vers une page de succès ou afficher un message de succès
-        header("Location: client.php");
+        header("Location: indexAdmin.php");
         exit;
     } else {
         echo "Erreur lors de l'ajout du client: " . mysqli_error($bdd);

@@ -33,7 +33,7 @@
             <div class="icon">
                 <?php
                 if (isset($_SESSION['admin']) && $_SESSION['admin']) {
-                    $redirectUrl = "../pages/produit.php";
+                    $redirectUrl = "../pages/indexAdmin.php";
                 } else {
                     $redirectUrl = "../pages/welcome.php";
                 }

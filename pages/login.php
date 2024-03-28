@@ -22,7 +22,7 @@ if (isset($_POST['connexion'])) {
                     $_SESSION['emailclient'] = $emailclient;
                     $_SESSION['userId'] = $id_client;
                     $_SESSION['admin'] = true;
-                    header('Location: produit.php');
+                    header('Location: indexAdmin.php');
                     exit;
                 }
                      else {// C'est un client

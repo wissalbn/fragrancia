@@ -1,13 +1,21 @@
 <?php
-// Inclure le fichier de connexion à la base de données
-include("connection.php");?>
+session_start();
+include("connection.php");
+// Vérifier si la session admin n'est pas définie ou n'est pas true
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+    // Rediriger l'utilisateur vers une autre page
+    header('Location: index.php');
+    exit; // Arrêter l'exécution du script
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Bootstrap Dashboard and Admin Template - ByteWebster</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Panneau d'administrateur - fragrancia</title>
+  <link rel="stylesheet" href="../styles/styleindexAdmin.css">
   <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -27,14 +35,7 @@ include("connection.php");?>
             <div class="navbar-user d-lg-none">
                 <!-- Dropdown -->
                 <div class="dropdown">
-                    <!-- Toggle -->
-                    <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="avatar-parent-child">
-                            <img alt="Image Placeholder" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar- rounded-circle">
-                            <span class="avatar-child avatar-badge bg-success"></span>
-                        </div>
-                    </a>
-                    <!-- Menu -->
+                
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
                         <a href="#" class="dropdown-item">Profile</a>
                         <hr class="dropdown-divider">
@@ -64,7 +65,7 @@ include("connection.php");?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#commande" id="commande-link">
-                            <i class="bi bi-globe-americas"></i> Commande
+                            <i class="bi bi-globe-americas"></i> Commandes
                         </a>
                     </li>
                     </ul>
@@ -77,7 +78,7 @@ include("connection.php");?>
                     <li class="nav-item">
                     <form action="logout.php" method="post">
                         <button type="submit" name="logout" class="nav-link" onclick="return confirm('Voulez-vous vous déconnecter ?')">
-                        <i class="bi bi-box-arrow-left"></i> déconnecter
+                        <i class="bi bi-box-arrow-left"></i> Déconnecter
                         </button>
                     </form>
                     </li>
@@ -278,7 +279,7 @@ if ($bdd) {
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
                             <div class="mx-n1">
-                            <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" data-bs-toggle="modal" data-bs-target="#produitModal">
+                            <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" data-bs-toggle="modal" data-bs-target="#clientModal">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
@@ -290,7 +291,7 @@ if ($bdd) {
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="produitModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -442,6 +443,7 @@ else {
                                 <tr>
                                     <th scope="col">N° de commande</th>
                                     <th scope="col">Client</th>
+                                    <th scope="col">Total</th>
                                     <th scope="col">Date de commande</th>
                                    
 
@@ -452,7 +454,7 @@ else {
 
 include("connection.php");
 
-$sql_commande = "SELECT c.IDCOMMANDE, c.DATECOMMANDE, u.NOMCLIENT
+$sql_commande = "SELECT c.IDCOMMANDE, c.DATECOMMANDE, c.TOTAUX, u.NOMCLIENT
                FROM commande c
                JOIN utilisateur u ON c.IDCLIENT = u.IDCLIENT";
 
@@ -460,11 +462,11 @@ $resultat_commande = mysqli_query($bdd, $sql_commande);
 
 if ($resultat_commande && mysqli_num_rows($resultat_commande) > 0) {
     while ($row_commande = mysqli_fetch_assoc($resultat_commande)) {
-        echo "<tr><td>" . $row_commande["IDCOMMANDE"] . "</td><td>" . $row_commande["NOMCLIENT"] . "</td><td>" . $row_commande["DATECOMMANDE"] . "</td>
+        echo "<tr><td>" . $row_commande["IDCOMMANDE"] . "</td><td>" . $row_commande["NOMCLIENT"] . "</td><td>" . $row_commande["TOTAUX"] . "</td><td>" . $row_commande["DATECOMMANDE"] . "</td>
         <td class='text-end'>" .
-        "<a href='edit_commande.php?id=" . $row_commande["IDCOMMANDE"] . "' class='btn btn-sm btn-neutral'>Éditer</a>
+        "<a href='edit_commande.php?id=" . $row_commande["IDCOMMANDE"] . "' class='btn btn-sm btn-neutral'>Éditer</a>" .
+        "</td></tr>";
 
-        </td></tr>";
     }
 } else {
     echo "<tr><td colspan='3'></td></tr>";
@@ -508,7 +510,7 @@ if ($resultat_commande && mysqli_num_rows($resultat_commande) > 0) {
             <div class="modal-body">
             <form action="add_produit.php" method="post">
         <div class="form-group">
-            <input type="text" class="form-control" id="id_categorie" name="id_categorie" placeholder="Catégorie" pattern="^[a-zA-Z\s]+$"required >
+            <input type="text" class="form-control" id="nom_categorie" name="nom_categorie" placeholder="Catégorie" pattern="^[a-zA-Z\s]+$"required >
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="nom_marque" name="nom_marque" placeholder="Nom Marque" pattern="^[a-zA-Z\s]+$" required>
@@ -546,8 +548,8 @@ if ($resultat_commande && mysqli_num_rows($resultat_commande) > 0) {
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">N° Produit</th>
-                                    <th scope="col">Catégorie</th>
                                     <th scope="col">Nom Produit</th>
+                                    <th scope="col">Catégorie</th>
                                     <th scope="col">Marque</th>
                                     <th scope="col">Prix</th>
                                     <th scope="col">Type</th>
@@ -607,6 +609,6 @@ if ($resultat_produit && mysqli_num_rows($resultat_produit) > 0) {
     </div>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

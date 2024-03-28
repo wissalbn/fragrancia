@@ -9,6 +9,7 @@ if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {
     // Requête SQL pour supprimer la commande avec l'ID spécifié
     $sql_delete_commande = "DELETE FROM commande WHERE IDCOMMANDE = $delete_id";
     mysqli_query($bdd, $sql_delete_commande);
+    header("Location: index.php");
 }
 
 // Requête SQL pour récupérer les commandes

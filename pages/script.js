@@ -20,3 +20,14 @@ function showSweetAlert() {
     }
   })
 }
+  document.getElementById("client-link").addEventListener("click", function() {
+        document.getElementById("client-content").style.display = "block";
+    });
+
+    document.getElementById("commande-link").addEventListener("click", function() {
+      document.getElementById("commande-content").style.display = "block";
+  });
+  document.getElementById("produir-link").addEventListener("click", function() {
+    document.getElementById("produit-content").style.display = "block";
+});
+

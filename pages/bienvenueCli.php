@@ -26,7 +26,18 @@ if (isset($_SESSION['userId'])) {
     <link rel="stylesheet" href="../styles/styleBienCl.css">
 </head>
 
-<body> <?php include("../pages/header.php"); ?><br>
+<body>
+    <div class="header">
+        <?php include("../pages/header.php"); ?>
+        <hr>
+        <div class="backlink">
+            <a href="../pages/index.php">ACCUEIL </a>
+            &gt;
+            <a href="../pages/welcome.php"> MON COMPTE</a>
+            &gt;
+            <a href="#"> MODIFIER INFORMATIONS</a>
+        </div>
+    </div>
     <div class="container">
 
         <div class="container1">

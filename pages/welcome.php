@@ -45,7 +45,7 @@ if (isset($_SESSION['userId'])) {
             </div>
             <div class="col text-end">
                 <form id="logoutForm" action="logout.php" method="post">
-                    <button type="submit" name="logout" class="logout-btn btn btn-danger">Logout</button>
+                    <button type="submit" name="logout" class="logout-btn btn btn-danger">DECONNEXION</button>
                 </form>
             </div>
         </div>
@@ -71,7 +71,7 @@ if (isset($_SESSION['userId'])) {
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>ID Commande</th>
+                                            <th>N° Commande</th>
                                             <th>Total</th>
                                             <th>Date de Commande</th>
                                         </tr>

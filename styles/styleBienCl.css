@@ -6,6 +6,38 @@
     box-sizing: border-box;
 }
 
+.header hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #3b3b3b;
+    margin: 10px auto;
+}
+
+.header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.backlink {
+    margin-left: 5%;
+}
+
+.backlink a {
+    text-decoration: none;
+    color: #2B2B2B;
+    font-family: 'Halant', serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120.833%;
+    /* 1.20831rem */
+    letter-spacing: 0.04rem;
+}
+
+.backlink a:hover {
+    text-decoration: underline;
+}
+
 body {
     width: 100%;
     height: auto;
